@@ -4,6 +4,7 @@ import PokeList from "./Components/PokemonData/PokeList";
 import PokePageButton from "./Components/PokemonNavigation/PokePageButton";
 import Navbar from "./Components/Nav/Navbar";
 import LandingPage from "./Components/LandingPage/LandingPage";
+import Footer from "./Components/Footer/Footer";
 import axios from "axios";
 
 const App = () => {
@@ -39,7 +40,7 @@ const App = () => {
     <>
       <Navbar />
       <LandingPage />
-      <div className="mx-10 md:mx-24 lg:mx-32 xl:mx-40 mb-10">
+      <div className="mx-3 md:mx-20 lg:mx-32 xl:mx-40 2xl:mx-96 mb-10 2xl:px-20">
       {!<PokeInfo info={Pokedex} />}
         <div>
           <PokePageButton
@@ -57,6 +58,7 @@ const App = () => {
           />
         </div>
       </div>
+      <Footer />
     </>
   );
 };
