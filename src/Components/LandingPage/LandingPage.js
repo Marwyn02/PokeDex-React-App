@@ -17,7 +17,6 @@ const LandingPage = () => {
                 trigger: ".front-page",
                 start: "0%",
                 end: "100%",
-                markers: true,
                 scrub: true,
                 pin: true
             }
