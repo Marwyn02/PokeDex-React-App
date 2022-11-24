@@ -41,7 +41,7 @@ const App = () => {
   };
 
   return (
-    <>
+    <div>
       {!<Navbar />}
       <LandingPage />
       <div className="mx-3 md:mx-20 lg:mx-32 xl:mx-40 2xl:mx-96 2xl:px-20">
@@ -68,7 +68,7 @@ const App = () => {
         }
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

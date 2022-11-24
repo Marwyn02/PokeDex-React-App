@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
 import Pokeball from "./Pokeball.png";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { gsap, ScrollTrigger, ScrollToPlugin } from "gsap/all";
 import "./landing.css"
 
 const LandingPage = () => {
-    gsap.registerPlugin(ScrollTrigger);
+    if (typeof window !== `undefined`) {
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+        gsap.core.globals("ScrollTrigger", ScrollTrigger)
+      }
 
     const uRef = useRef(null)
 
@@ -21,15 +23,14 @@ const LandingPage = () => {
             }
         })
         tl.fromTo(".front-page", { clipPath: "circle(5%)" }, { clipPath: "circle(75%)", duration: 3 });
-
         tl.fromTo(".pokeball", { scale: 1.8 }, { scale: 0, duration: 1 }, "-=3");
         tl.fromTo(".title", { opacity: 0 }, { opacity: 1, duration: 1 });
         tl.fromTo(".sub-title", { opacity: 0}, { opacity: 1, duration: 1});
-    }, [])
+    }, []);
 
     return (
         <>
-            <div className="bg-black/90  ">
+            <div className="bg-black/90">
                 <div ref={ uRef } className="front-page bg-white h-screen w-full grid place-items-center relative px-5 sm:px-0">
                     <div className="text-black/70 mb-2">
                         <h1 className="title text-2xl md:text-5xl font-bold tracking-wide md:mb-1">Welcome to Pokemon Index</h1>
