@@ -1,17 +1,17 @@
-import PokeList from "./PokeList";
+// import PokeList from "./PokeList";
 
-const AllPokeList = (props) => {
-  const PokemonList = props.data.map((item) => {
-    return item;
-  });
+// const AllPokeList = (props) => {
+//   const PokemonList = props.data.map((item) => {
+//     return item;
+//   });
 
-  return (
-    <div>
-      <PokeList 
-        data={ PokemonList } 
-      />
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       <PokeList
+//         data={ PokemonList }
+//       />
+//     </div>
+//   );
+// };
 
-export default AllPokeList;
+// export default AllPokeList;

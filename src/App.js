@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
-import PokeInfo from "./Components/PokemonData/PokeInfo";
 import PokeList from "./Components/PokemonData/PokeList";
+import PokeModal from "./Components/PokemonData/PokeModal";
 import PokePageButton from "./Components/PokemonNavigation/PokePageButton";
-import Navbar from "./Components/Nav/Navbar";
+// import Navbar from "./Components/Nav/Navbar";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Footer from "./Components/Footer/Footer";
 import LoadingSpinner from "./Components/UI/LoadingSpinner";
 import axios from "axios";
+import "tw-elements";
 
 const App = () => {
   const [Pokedata, setPokedata] = useState([]);
+  const [Pokedex, setPokedex] = useState();
   const [URL, setURL] = useState("https://pokeapi.co/api/v2/pokemon/");
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
   const [nextURL, setNextURL] = useState();
   const [prevURL, setPrevURL] = useState();
-  const [Pokedex, setPokedex] = useState();
 
   useEffect(() => {
     const pokemonFun = async () => {
@@ -26,8 +27,8 @@ const App = () => {
       setIsLoading(false);
     };
     pokemonFun();
-  }, [URL])
-  
+  }, [URL]);
+
   const getPokemon = (res) => {
     res.map(async (item) => {
       const result = await axios.get(item.url);
@@ -41,12 +42,11 @@ const App = () => {
   };
 
   return (
-    <div>
-      {!<Navbar />}
+    <>
       <LandingPage />
+      <PokeModal info={Pokedex} />
       <div className="mx-3 md:mx-20 lg:mx-32 xl:mx-40 2xl:mx-96 2xl:px-20">
-      {!<PokeInfo info={Pokedex} />}
-        { 
+        {
           <div>
             <PokePageButton
               setData={setPokedata}
@@ -54,10 +54,14 @@ const App = () => {
               next={nextURL}
               switch={setURL}
             />
-            { 
-              isLoading ? <LoadingSpinner /> :
-              <PokeList data={Pokedata} info={(poke) => setPokedex(poke)} />
-            }
+            {isLoading ? (
+              <LoadingSpinner />
+            ) : (
+              <PokeList
+                data={Pokedata}
+                info={(pokemon) => setPokedex(pokemon)}
+              />
+            )}
             <PokePageButton
               setData={setPokedata}
               prev={prevURL}
@@ -68,7 +72,7 @@ const App = () => {
         }
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
