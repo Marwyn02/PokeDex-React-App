@@ -1,7 +1,8 @@
 import React from "react";
+import "./pokemodal.css";
 
 const PokeModal = (props) => {
-  //   console.log(props);
+  console.log(props);
   return (
     <>
       {!props.info ? (
@@ -14,21 +15,31 @@ const PokeModal = (props) => {
           aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true"
         >
-          <div className="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
-            <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-              <div className="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+          <div className="modal-dialog modal-dialog-scrollable modal-dialog-centered relative w-auto pointer-events-none">
+            <div
+              className="modal-content border-none shadow-lg relative flex flex-col w-full 
+            pointer-events-auto bg-white outline-none text-current rounded-md"
+            >
+              <div className="modal-header flex flex-shrink-0 items-center justify-between p-4 bg-black/80 drop-shadow-xl rounded-t-md">
+                <h6 className="text-2xl sm:text-4xl text-white/90 font-medium leading-normal pr-4">
+                  <span className="text-lg font-normal text-white/80">No</span>
+                  {props.info.id}
+                </h6>
                 <h5
-                  className="text-xl font-bold font-sans leading-normal text-gray-800 capitalize"
+                  className="text-2xl sm:text-4xl font-bold font-sans leading-normal text-white/90 subpixel-antialiased capitalize tracking-wide"
                   id="exampleModalLabel"
                 >
                   {props.info.name}
                 </h5>
                 <button
                   type="button"
-                  className="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                  className="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 
+                  focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
                   data-bs-dismiss="modal"
                   aria-label="Close"
-                ></button>
+                >
+                  Close
+                </button>
               </div>
               <div className="modal-body relative p-4">
                 <div className="pb-8 px-5">
@@ -38,31 +49,48 @@ const PokeModal = (props) => {
                     alt=""
                   />
                 </div>
-                <div className="grid grid-cols-3 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-4 pb-1 text-sm">
-                  <p>Type</p>
-                  {props.info.types.map((poke) => {
-                    return (
-                      <p
-                        className={`${poke.type.name} rounded-md text-center text-xs py-0.5`}
-                      >
-                        {poke.type.name}
-                      </p>
-                    );
-                  })}
-                </div>
-                <div className="grid grid-cols-2 px-2 gap-1 md:gap-2 mb-2">
-                  {props.info.moves.slice(0, 4).map((poke) => {
-                    return (
-                      <p
-                        className="border-2 border-gray-600 bg-gray-600 text-white
-                          rounded-lg text-center w-100 font-semibold
-                          hover:border-transparent hover:bg-transparent
-                          duration-200 hover:text-gray-700"
-                      >
-                        {poke.move.name}
-                      </p>
-                    );
-                  })}
+                <div className="px-3 sm:px-12">
+                  <div className="grid grid-cols-3 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-4 pb-1 text-sm">
+                    <p className="text-black/60 text-medium">Type</p>
+                    {props.info.types.map((poke) => {
+                      return (
+                        <p
+                          className={`${poke.type.name} rounded-md text-center text-xs py-0.5 capitalize`}
+                        >
+                          {poke.type.name}
+                        </p>
+                      );
+                    })}
+                  </div>
+                  <div className="px-5 py-2.5 leading-5">
+                    {props.info.stats.map((poke) => {
+                      return (
+                        <p className="capitalize font-medium">
+                          {poke.stat.name}:{" "}
+                          <span className={`${poke.stat.name}`}>
+                            {poke.base_stat}
+                          </span>
+                        </p>
+                      );
+                    })}
+                  </div>
+                  <div>
+                    <h5 className="-mb-1.5 text-sm font-medium text-black/60 capitalize">
+                      Moves
+                    </h5>
+                    <div className="grid grid-cols-2 gap-1.5 md:gap-2 mb-2 px-10 py-2">
+                      {props.info.moves.slice(0, 4).map((poke) => {
+                        return (
+                          <p
+                            className="capitalize text-xs sm:text-sm border border-gray-600 text-black
+                          text-center w-auto font-semibold"
+                          >
+                            {poke.move.name}
+                          </p>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
@@ -83,7 +111,7 @@ const PokeModal = (props) => {
                 >
                   Close
                 </button>
-                <button
+                {/* <button
                   type="button"
                   className="
                   text-white
@@ -101,7 +129,7 @@ const PokeModal = (props) => {
 px-6 py-2.5 bg-blue-600 ease-in-out ml-1"
                 >
                   Save changes
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
