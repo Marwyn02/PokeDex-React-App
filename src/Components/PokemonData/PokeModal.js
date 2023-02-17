@@ -1,8 +1,13 @@
 import React from "react";
 import "./pokemodal.css";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 const PokeModal = (props) => {
   console.log(props);
+
+  // if (!props.info.sprites.other.dream_world.front_default) {
+  //     content = <p>No image available...</p>
+  // }
   return (
     <>
       {!props.info ? (
@@ -20,28 +25,28 @@ const PokeModal = (props) => {
               className="modal-content border-none shadow-lg relative flex flex-col w-full 
             pointer-events-auto bg-white outline-none text-current rounded-md"
             >
-              <div className="modal-header flex flex-shrink-0 items-center justify-between p-4 bg-black/80 drop-shadow-xl rounded-t-md">
-                <h6 className="text-2xl sm:text-4xl text-white/90 font-medium leading-normal pr-4">
+              <div className="modal-header flex flex-shrink-0 items-center justify-between pt-4 p-3 bg-black/80 drop-shadow-xl rounded-t-md">
+                <h6 className="text-2xl sm:text-3xl text-white/90 font-medium pr-2 sm:pr-3">
                   <span className="text-lg font-normal text-white/80">No</span>
                   {props.info.id}
                 </h6>
-                <h5
-                  className="text-2xl sm:text-4xl font-bold font-sans leading-normal text-white/90 subpixel-antialiased capitalize tracking-wide"
+                <h2
+                  className="text-2xl sm:text-3xl font-bold text-white/90 subpixel-antialiased capitalize tracking-wide"
                   id="exampleModalLabel"
                 >
                   {props.info.name}
-                </h5>
+                </h2>
                 <button
                   type="button"
-                  className="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 
+                  className="btn-close box-content border-none rounded-none opacity-50 
                   focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 >
-                  Close
+                  <IoCloseCircleOutline className="text-white" size={24} />
                 </button>
               </div>
-              <div className="modal-body relative p-4">
+              <div className="modal-body relative p-4 pt-5">
                 <div className="pb-8 px-5">
                   <img
                     className="mx-auto"
@@ -92,44 +97,6 @@ const PokeModal = (props) => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
-                <button
-                  type="button"
-                  className="px-6 py-2.5 bg-purple-600 text-white font-medium text-xs
-              leading-tight
-              uppercase
-              rounded
-              shadow-md
-              hover:bg-purple-700 hover:shadow-lg
-              focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0
-              active:bg-purple-800 active:shadow-lg
-              transition
-              duration-150
-              ease-in-out"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                {/* <button
-                  type="button"
-                  className="
-                  text-white
-                  font-medium
-                  text-xs
-                  leading-tight
-                  uppercase
-                  rounded
-                  shadow-md
-                  hover:bg-blue-700 hover:shadow-lg
-                  focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-                  active:bg-blue-800 active:shadow-lg
-                  transition
-                  duration-150
-px-6 py-2.5 bg-blue-600 ease-in-out ml-1"
-                >
-                  Save changes
-                </button> */}
               </div>
             </div>
           </div>

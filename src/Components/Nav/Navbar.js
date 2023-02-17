@@ -1,20 +1,17 @@
-import './navbar.css';
-
-import Logo from './nav-utils/pokedexlogo.png';
+import "./navbar.css";
+// import Logo from "./nav-utils/pokedexlogo.png";
+import { SlHome } from "react-icons/sl";
 
 const Navbar = () => {
-    return (
-         <div className='relative z-10'>
-            <div className="bg-white drop-shadow-md fixed w-full">
-                <div className="flex items-center py-3 px-2 md:pt-5 md:pb-4 md:px-5 duration-300">
-                    <img src={ Logo } alt='logo'
-                        className='h-5 md:h-10'
-                    />
-                    <h1 className='text-lg md:text-2xl font-semibold tracking-wide text-gray-700'>Pokedex</h1>
-                </div>
-            </div>
-         </div>   
-    )
-}
+  return (
+    <div className="relative z-10 duration-300">
+      <div className="bg-white drop-shadow-md md:hidden fixed bottom-0 w-full">
+        <div className="flex justify-center items-center py-4 px-2 md:pt-4 md:pb-3 md:px-5 duration-300">
+          <SlHome />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Navbar;
