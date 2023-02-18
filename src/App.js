@@ -22,13 +22,13 @@ const App = () => {
     const pokemonFun = async () => {
       setIsLoading(true);
       const res = await axios.get(URL);
+      // console.log(res);
       // if (!res.ok) {
       //   throw new Error("Something went wrong");
       // }
       setNextURL(res.data.next);
       setPrevURL(res.data.previous);
       getPokemon(res.data.results);
-
       setIsLoading(false);
     };
     pokemonFun();
@@ -37,7 +37,7 @@ const App = () => {
   const getPokemon = (res) => {
     res.map(async (item) => {
       const result = await axios.get(item.url);
-      // console.log(result.data)
+      // console.log(result.data);
       setPokedata((prevPokemon) => {
         prevPokemon = [...prevPokemon, result.data];
         prevPokemon.sort((a, b) => (a.id > b.id ? 1 : -1));
@@ -46,10 +46,15 @@ const App = () => {
     });
   };
 
-  let PokemonContent = <p>No pokemons for a moment...</p>;
+  let PokemonContent = (
+    <p className="text-center">No pokemons for a moment...</p>
+  );
   if (Pokedata.length > 0) {
     PokemonContent = (
-      <PokeList data={Pokedata} info={(pokemon) => setPokedex(pokemon)} />
+      <div>
+        <PokeList data={Pokedata} info={(pokemon) => setPokedex(pokemon)} />
+        <PokeModal info={Pokedex} />
+      </div>
     );
   }
   // if (error) {
@@ -60,9 +65,8 @@ const App = () => {
   }
 
   return (
-    <>
+    <React.Fragment>
       <LandingPage />
-      {!isLoading && <PokeModal info={Pokedex} />}
       <Navbar />
       <div className="mx-3 md:mx-20 lg:mx-32 xl:mx-40 2xl:mx-96 2xl:px-20">
         {
@@ -84,7 +88,7 @@ const App = () => {
         }
       </div>
       <Footer />
-    </>
+    </React.Fragment>
   );
 };
 

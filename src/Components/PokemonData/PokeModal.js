@@ -3,13 +3,13 @@ import "./pokemodal.css";
 import { IoCloseCircleOutline } from "react-icons/io5";
 
 const PokeModal = (props) => {
-  console.log(props);
+  // console.log(props);
 
   // if (!props.info.sprites.other.dream_world.front_default) {
   //     content = <p>No image available...</p>
   // }
   return (
-    <>
+    <React.Fragment>
       {!props.info ? (
         ""
       ) : (
@@ -102,7 +102,7 @@ const PokeModal = (props) => {
           </div>
         </div>
       )}
-    </>
+    </React.Fragment>
   );
 };
 
