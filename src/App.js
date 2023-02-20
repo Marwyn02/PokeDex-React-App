@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PokeList from "./Components/PokemonData/PokeList";
 import PokeModal from "./Components/PokemonData/PokeModal";
 import PokePageButton from "./Components/PokemonNavigation/PokePageButton";
+import SearchHomePage from "./Components/PokemonSearchData/SearchHomePage";
 import Navbar from "./Components/Nav/Navbar";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Footer from "./Components/Footer/Footer";
@@ -16,6 +17,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [nextURL, setNextURL] = useState();
   const [prevURL, setPrevURL] = useState();
+  const [searchPanel, setSearchPanel] = useState(false);
   // const [error, setError] = useState();
 
   useEffect(() => {
@@ -64,29 +66,40 @@ const App = () => {
     PokemonContent = <LoadingSpinner />;
   }
 
+  const SearchPanelHandler = () => {
+    console.log("Panel Clicked");
+    setSearchPanel(true);
+  };
+  const HomePageHandler = () => {
+    setSearchPanel(false);
+  };
+
   return (
     <React.Fragment>
       <LandingPage />
-      <Navbar />
-      <div className="mx-3 md:mx-20 lg:mx-32 xl:mx-40 2xl:mx-96 2xl:px-20">
-        {
-          <div>
-            <PokePageButton
-              setData={setPokedata}
-              prev={prevURL}
-              next={nextURL}
-              switch={setURL}
-            />
-            {PokemonContent}
-            <PokePageButton
-              setData={setPokedata}
-              prev={prevURL}
-              next={nextURL}
-              switch={setURL}
-            />
-          </div>
-        }
-      </div>
+      <Navbar click={SearchPanelHandler} homeClick={HomePageHandler} />
+      {searchPanel && <SearchHomePage />}
+      {!searchPanel && (
+        <div className="mx-3 md:mx-20 lg:mx-32 xl:mx-40 2xl:mx-96 2xl:px-20">
+          {
+            <div>
+              <PokePageButton
+                setData={setPokedata}
+                prev={prevURL}
+                next={nextURL}
+                switch={setURL}
+              />
+              {PokemonContent}
+              <PokePageButton
+                setData={setPokedata}
+                prev={prevURL}
+                next={nextURL}
+                switch={setURL}
+              />
+            </div>
+          }
+        </div>
+      )}
       <Footer />
     </React.Fragment>
   );
