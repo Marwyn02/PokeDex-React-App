@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/PokeDex-React-App/static/css/main.a8b1cf84.css",
-    "main.js": "/PokeDex-React-App/static/js/main.d8e3c844.js",
+    "main.css": "/PokeDex-React-App/static/css/main.32a615a5.css",
+    "main.js": "/PokeDex-React-App/static/js/main.5f3b3e80.js",
     "static/media/Pokeball.png": "/PokeDex-React-App/static/media/Pokeball.0c681e75c8c30f6ed631.png",
+    "static/media/UnderConstructionIcon.png": "/PokeDex-React-App/static/media/UnderConstructionIcon.23dacb103c0e5faa88e5.png",
     "index.html": "/PokeDex-React-App/index.html",
-    "main.a8b1cf84.css.map": "/PokeDex-React-App/static/css/main.a8b1cf84.css.map",
-    "main.d8e3c844.js.map": "/PokeDex-React-App/static/js/main.d8e3c844.js.map"
+    "main.32a615a5.css.map": "/PokeDex-React-App/static/css/main.32a615a5.css.map",
+    "main.5f3b3e80.js.map": "/PokeDex-React-App/static/js/main.5f3b3e80.js.map"
   },
   "entrypoints": [
-    "static/css/main.a8b1cf84.css",
-    "static/js/main.d8e3c844.js"
+    "static/css/main.32a615a5.css",
+    "static/js/main.5f3b3e80.js"
   ]
 }
