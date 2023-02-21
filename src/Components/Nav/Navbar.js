@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const Navbar = (props) => {
   const [ChangeSearchLogo, setChangeSearchLogo] = useState(false);
+
   return (
     <div className="relative z-10 duration-300">
       <div className="bg-white drop-shadow-md md:hidden fixed bottom-0 w-full">

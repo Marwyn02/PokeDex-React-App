@@ -3,6 +3,7 @@ import PokeList from "./Components/PokemonData/PokeList";
 import PokeModal from "./Components/PokemonData/PokeModal";
 import PokePageButton from "./Components/PokemonNavigation/PokePageButton";
 import SearchHomePage from "./Components/PokemonSearchData/SearchHomePage";
+import UtilsBar from "./Components/Nav/UtilsBar";
 import Navbar from "./Components/Nav/Navbar";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Footer from "./Components/Footer/Footer";
@@ -78,6 +79,7 @@ const App = () => {
     <React.Fragment>
       <LandingPage />
       <Navbar click={SearchPanelHandler} homeClick={HomePageHandler} />
+      <UtilsBar click={SearchPanelHandler} homeClick={HomePageHandler} />
       {searchPanel && <SearchHomePage />}
       {!searchPanel && (
         <div className="mx-3 md:mx-20 lg:mx-32 xl:mx-40 2xl:mx-96 2xl:px-20">
