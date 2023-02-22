@@ -56,7 +56,7 @@ const App = () => {
     PokemonContent = (
       <div>
         <PokeList data={Pokedata} info={(pokemon) => setPokedex(pokemon)} />
-        <PokeModal info={Pokedex} />
+        {Pokedex && <PokeModal info={Pokedex} />}
       </div>
     );
   }
