@@ -12,8 +12,8 @@ const PokeList = (props) => {
                 key={item.id}
                 className="group duration-300 ease-in"
                 onClick={() => props.info(item)}
-                data-bs-toggle="modal"
-                data-bs-target="#myModal"
+                data-te-toggle="modal"
+                data-te-target="#myModal"
               >
                 <div className="mx-w-sm border border-black group-hover:border-gray-100 capitalize relative">
                   <span className="font-light text-md md:text-2xl ml-2 absolute group-hover:font-bold duration-300">
