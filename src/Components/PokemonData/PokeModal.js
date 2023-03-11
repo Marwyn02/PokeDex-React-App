@@ -56,7 +56,7 @@ const PokeModal = (props) => {
               <div className="modal-body relative flex-auto px-3 pb-5 md:pb-8 md:px-5 pt-3">
                 <div className="pb-8 px-5 md:px-8">
                   <img
-                    className="mx-auto"
+                    className="mx-auto max-w-xs max-h-60"
                     src={props.info.sprites.other.dream_world.front_default}
                     alt=""
                   />

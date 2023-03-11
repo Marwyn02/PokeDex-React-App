@@ -1,111 +1,120 @@
 .grass {
-    background-color: #9BCB50;
-    color: #232322;
+  background-color: #9bcb50;
+  color: #232322;
 }
 
 .fire {
-    background-color: #FD7D24;
+  background-color: #fd7d24;
 }
 
 .water {
-    background-color: #4592C4;
+  background-color: #4592c4;
 }
 
 .electric {
-    background-color: rgb(235, 209, 38);
-    color: #232322;
+  background-color: rgb(235, 209, 38);
+  color: #232322;
 }
 
 .ice {
-    background-color: #50C4E7;
-    color: #232322;
+  background-color: #50c4e7;
+  color: #232322;
 }
 
 .fighting {
-    background-color: #D56723;
+  background-color: #d56723;
 }
 
 .poison {
-    background-color: #B87EC8;
+  background-color: #b87ec8;
 }
 
 .ground {
-    background-color: #AB9842;
+  background-color: #ab9842;
 }
 
 .flying {
-    background: linear-gradient(to bottom, rgb(161, 215, 230) 50%, #b7c1c3 50%);
-    color: #232322;
-
+  background: linear-gradient(to bottom, rgb(161, 215, 230) 50%, #b7c1c3 50%);
+  color: #232322;
 }
 
 .psychic {
-    background-color: rgb(219, 77, 207);
+  background-color: rgb(219, 77, 207);
 }
 
 .ghost {
-    background-color: #7B62A2;
+  background-color: #7b62a2;
 }
 
 .bug {
-    background-color: #719F3E;
+  background-color: #719f3e;
 }
 
 .rock {
-    background-color: #A28C21;
+  background-color: #a28c21;
 }
 
 .dragon {
-    background: linear-gradient(to bottom, #452fd8 50%, #d77132 50%);
+  background: linear-gradient(to bottom, #452fd8 50%, #d77132 50%);
 }
 
 .normal {
-    background-color: #A3ACAE;
+  background-color: #a3acae;
 }
 
 .fairy {
-    background-color: rgb(255, 148, 191);
-    color: #232322;
+  background-color: rgb(255, 148, 191);
+  color: #232322;
 }
 
 .dark {
-    background-color: #707070;
+  background-color: #707070;
 }
 
 .steel {
-    background-color: #9DB7B7;
+  background-color: #9db7b7;
 }
 
-@media only screen and (max-width: 452px) {
-    .fighting {
-        padding-right: 4.1em;
-        padding-left: 0.3em;
-        transition: all 0.3s ease;
-    }
+@media only screen and (max-width: 400px) {
+  .fighting {
+    /* padding-right: 2em;
+    padding-left: 1.4em; */
+    padding: 0px auto;
+    transition: all 0.3s ease;
+  }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 854px) {
-    .fighting {
-        padding-right: 4.2em;
-        padding-left: 0.3em;
-    }
+/* @media only screen and (min-width: 452px) {
+  .fighting {
+    padding: 0px auto;
+    transition: all 0.3s ease;
+  }
+} */
+
+@media only screen and (max-width: 768px) and (min-width: 854px) {
+  .fighting {
+    padding-right: 4.2em;
+    padding-left: 0.3em;
+  }
 }
 
-@media only screen and (min-width: 1024px) and (max-width: 1211px) {
-    .fighting {
-        padding-right: 3.85em;
-        padding-left: 0.15em;
-    }
-    .psychic {
-        padding-right: 3.66em;
-        padding-left: 0.15em;
-    }
-    .ground, .electric {
-        padding-right: 3.7em;
-        padding-left: 0.3em;
-    }
-    .normal, .dragon {
-        padding-right: 3.5em;
-        padding-left: 0.1em;
-    }
+@media only screen and (max-width: 1024px) and (min-width: 1211px) {
+  .fighting {
+    padding-right: 3.85em;
+    padding-left: 0.15em;
+  }
+  .psychic {
+    padding-right: 3.66em;
+    padding-left: 0.15em;
+  }
+  .ground,
+  .electric {
+    padding-right: 3.7em;
+    padding-left: 0.3em;
+  }
+  .normal,
+  .dragon {
+    padding-right: 3.5em;
+    padding-left: 0.1em;
+  }
 }
