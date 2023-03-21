@@ -3,6 +3,7 @@ import PokeList from "./Components/PokemonData/PokeList";
 import PokeModal from "./Components/PokemonData/PokeModal";
 import PokePageButton from "./Components/PokemonNavigation/PokePageButton";
 import SearchHomePage from "./Components/PokemonSearchData/SearchHomePage";
+import MapHomePage from "./Components/PokemonMapSearch/MapHomePage";
 import UtilsBar from "./Components/Nav/UtilsBar";
 import Navbar from "./Components/Nav/Navbar";
 import LandingPage from "./Components/LandingPage/LandingPage";
@@ -19,20 +20,27 @@ const App = () => {
   const [nextURL, setNextURL] = useState();
   const [prevURL, setPrevURL] = useState();
   const [searchPanel, setSearchPanel] = useState(false);
-  // const [error, setError] = useState();
+  const [mapSearch, setMapSearch] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const pokemonFun = async () => {
-      setIsLoading(true);
-      const res = await axios.get(URL);
-      // console.log(res);
-      // if (!res.ok) {
-      //   throw new Error("Something went wrong");
-      // }
-      setNextURL(res.data.next);
-      setPrevURL(res.data.previous);
-      getPokemon(res.data.results);
-      setIsLoading(false);
+      try {
+        setIsLoading(true);
+        const res = await axios.get(URL);
+        // console.log(res);
+        // if (!res.ok) {
+        //   throw new Error("Something went wrong");
+        // }
+        setNextURL(res.data.next);
+        setPrevURL(res.data.previous);
+        getPokemon(res.data.results);
+        setIsLoading(false);
+      } catch (error) {
+        setError(true);
+        console.log("You got an error", error);
+        setIsLoading(false);
+      }
     };
     pokemonFun();
   }, [URL]);
@@ -49,9 +57,7 @@ const App = () => {
     });
   };
 
-  let PokemonContent = (
-    <p className="text-center">No pokemons for a moment...</p>
-  );
+  let PokemonContent = <p> </p>;
   if (Pokedata.length > 0) {
     PokemonContent = (
       <div>
@@ -60,28 +66,49 @@ const App = () => {
       </div>
     );
   }
-  // if (error) {
-  //   PokemonContent = <p>{error}</p>;
-  // }
+  if (error) {
+    PokemonContent = (
+      <div className="text-center mx-5 md:mx-32 lg:mx-60 py-5 mb-20 border-y-4 border-red-400/50">
+        <p className="text-sm">There's something wrong with the server.</p>
+        <p className="text-lg font-bold tracking-wide">
+          Please try it again next time.
+        </p>
+      </div>
+    );
+  }
   if (isLoading) {
     PokemonContent = <LoadingSpinner />;
   }
 
   const SearchPanelHandler = () => {
-    console.log("Panel Clicked");
     setSearchPanel(true);
+    setMapSearch(false);
   };
   const HomePageHandler = () => {
+    setSearchPanel(false);
+    setMapSearch(false);
+  };
+  const MapSearchHandler = () => {
+    setMapSearch(true);
     setSearchPanel(false);
   };
 
   return (
     <React.Fragment>
       <LandingPage />
-      <Navbar click={SearchPanelHandler} homeClick={HomePageHandler} />
-      <UtilsBar click={SearchPanelHandler} homeClick={HomePageHandler} />
+      <Navbar
+        click={SearchPanelHandler}
+        homeClick={HomePageHandler}
+        mapClick={MapSearchHandler}
+      />
+      <UtilsBar
+        searchClick={SearchPanelHandler}
+        homeClick={HomePageHandler}
+        mapClick={MapSearchHandler}
+      />
+      {mapSearch && <MapHomePage />}
       {searchPanel && <SearchHomePage />}
-      {!searchPanel && (
+      {!searchPanel && !mapSearch && (
         <div className="mx-3 md:mx-20 lg:mx-32 xl:mx-40 2xl:mx-96 2xl:px-20">
           {
             <div>

@@ -23,7 +23,7 @@ const UtilsBar = (props) => {
             <button
               className="md:px-10 md:py-5 hover:text-white"
               onClick={() => {
-                props.click();
+                props.searchClick();
               }}
             >
               <SlMagnifier />
@@ -33,7 +33,7 @@ const UtilsBar = (props) => {
             <button
               className="md:px-10 md:py-5 hover:text-white"
               onClick={() => {
-                props.click();
+                props.mapClick();
               }}
             >
               <SlMap />

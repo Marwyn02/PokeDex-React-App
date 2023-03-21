@@ -1,14 +1,8 @@
-import React from "react";
+import { React } from "react";
 import "./pokemodal.css";
 import { IoClose } from "react-icons/io5";
 
 const PokeModal = (props) => {
-  // console.log(props);
-
-  // if (!props.info.sprites.other.dream_world.front_default) {
-  //     content = <p>No image available...</p>
-  // }
-
   return (
     <>
       {!props.info ? (
@@ -16,7 +10,7 @@ const PokeModal = (props) => {
       ) : (
         <div
           data-te-modal-init
-          className="fixed top-0 left-0 z-[1055] hidden h-full w-full p-4 overflow-x-hidden overflow-y-auto outline-none"
+          className="fixed top-0 left-0 z-[1055] hidden h-full w-full p-0.5 md:p-4 overflow-x-hidden overflow-y-auto outline-none"
           id="myModal"
           tabIndex="-1"
           aria-labelledby="Modal"
@@ -26,7 +20,7 @@ const PokeModal = (props) => {
             {/* Modal Content */}
             <div
               data-te-modal-dialog-ref
-              className="pointer-events-auto relative bg-white rounded-lg shadow dark:bg-gray-700 min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] flex w-full flex-col border-none bg-white bg-clip-padding text-current shadow-lg outline-none"
+              className="pointer-events-auto relative rounded-lg shadow dark:bg-gray-800 min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] flex w-full flex-col border-none bg-white bg-clip-padding text-current shadow-lg outline-none"
             >
               <div className="flex grid grid-cols-4 items-center justify-center p-4 md:p-7 rounded-t dark:border-gray-600">
                 <h6 className="text-xl sm:text-2xl text-white/90 font-medium">
@@ -57,11 +51,13 @@ const PokeModal = (props) => {
                 <div className="pb-8 px-5 md:px-8">
                   <img
                     className="mx-auto max-w-xs max-h-60"
-                    src={props.info.sprites.other.dream_world.front_default}
-                    alt=""
+                    src={
+                      props.info.sprites.other["official-artwork"].front_default
+                    }
+                    alt={"Pokemon_image"}
                   />
                 </div>
-                <div className="px-3 sm:px-12">
+                <div className="px-4 sm:px-8">
                   <div className="grid grid-cols-3 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-4 pb-1 text-sm">
                     <p className="text-gray-100/70 text-medium">Type</p>
                     {props.info.types.map((poke) => {
