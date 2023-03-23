@@ -20,12 +20,12 @@ const PokeList = (props) => {
                     {item.id}
                   </span>
                   <img
-                    className="mx-auto p-3 max-h-32 md:max-h-52 max-w-full group-hover:-translate-y-6 group-hover:scale-150 group-hover:z-10 group-hover:delay-150 duration-300"
+                    className="mx-auto p-3 max-h-32 md:max-h-52 max-w-full group-hover:-translate-y-6 group-hover:scale-125 group-hover:md:scale-150 group-hover:z-10 group-hover:delay-150 duration-300"
                     src={item.sprites.other["official-artwork"].front_default}
                     alt=""
                   />
                   <div className="px-2 md:px-5 py-3 mt-1 bg-black/75 group-hover:bg-black/90 duration-300">
-                    <h1 className="tracking-wide font-semibold text-xl text-white/80 group-hover:text-white duration-300">
+                    <h1 className="font-semibold text-xl text-white/80 group-hover:text-white duration-300">
                       {item.name}
                     </h1>
                     <div className="grid grid-cols-3 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-4 pb-1 text-sm">

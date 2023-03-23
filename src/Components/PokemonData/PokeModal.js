@@ -20,7 +20,7 @@ const PokeModal = (props) => {
             {/* Modal Content */}
             <div
               data-te-modal-dialog-ref
-              className="pointer-events-auto relative rounded-lg shadow dark:bg-gray-800 min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] flex w-full flex-col border-none bg-white bg-clip-padding text-current shadow-lg outline-none"
+              className="pointer-events-auto relative rounded-lg shadow bg-gray-800 min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] flex w-full flex-col border-none bg-white bg-clip-padding text-current shadow-lg outline-none"
             >
               <div className="flex grid grid-cols-4 items-center justify-center p-4 md:p-7 rounded-t dark:border-gray-600">
                 <h6 className="text-xl sm:text-2xl text-white/90 font-medium">

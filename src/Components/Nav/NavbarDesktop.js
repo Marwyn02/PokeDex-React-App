@@ -4,6 +4,7 @@ import { SlHome, SlMagnifier, SlMap } from "react-icons/sl";
 const UtilsBar = (props) => {
   return (
     <div>
+      {/* Utility bar is for desktop view navbar  */}
       <div
         className="hidden md:block group w-full bg-black/80 mt-20 mb-14 border-b-4 border-white/60
       hover:bg-gray-50 hover:border-black duration-300"

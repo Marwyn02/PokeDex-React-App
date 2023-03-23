@@ -4,6 +4,6 @@ const query = {
 };
 
 export async function GetPokemon(pokemon) {
-  console.log(`${URL}/${query.pokemon}/${pokemon}`);
+  // console.log(`${URL}/${query.pokemon}/${pokemon}`);
   return fetch(`${URL}/${query.pokemon}/${pokemon}`, { method: "GET" });
 }

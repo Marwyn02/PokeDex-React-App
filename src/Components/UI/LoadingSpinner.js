@@ -4,14 +4,16 @@ import "./LoadingSpinner.css";
 
 const LoadingSpinner = () => {
   return (
-    // <div className="text-center text-xl">Loading...</div>
     <>
-      <div className="py-20">
+      <div className="py-32">
         <img
           className="animate-spin h-12 md:h-8 mx-auto"
           src={Pokeball}
           alt="Loading..."
         />
+        <p className="text-black/80 text-sm md:text-base text-center pt-5">
+          Please wait, we'll find them for you.
+        </p>
       </div>
     </>
   );

@@ -1,9 +1,0 @@
-.gradient-text {
-    background-color: #e5de57;
-    background-image: linear-gradient(45deg, #b7af0d, #3d9c58);
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-text-fill-color: transparent;
-}
