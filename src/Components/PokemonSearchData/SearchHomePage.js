@@ -96,7 +96,7 @@ const SearchHomePage = () => {
                       </p>
                       <span
                         className={`${poke.stat.name} col-span-1 flex items-center justify-center 
-                      rounded text-xs md:text-base bg-red-100 text-center`}
+                      rounded text-xs md:text-base text-center`}
                       >
                         {poke.base_stat}
                       </span>
