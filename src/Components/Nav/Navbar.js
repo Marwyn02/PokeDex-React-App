@@ -13,34 +13,37 @@ const Navbar = (props) => {
         <div className="grid grid-cols-5 gap-2 flex items-center border-t justify-center px-4 md:py-2 md:px-5 duration-100">
           {ChangeSearchLogo && (
             <button
-              className="flex justify-center col-start-3 duration-100 py-4 px-1"
+              className="grid grid-cols-1 col-start-3 duration-100 py-2 px-1 hover:text-gray-500 active:text-blue-500"
               onClick={() => {
                 props.homeClick();
                 setChangeSearchLogo(false);
               }}
             >
-              <SlHome />
+              <SlHome className="mx-auto mb-0.5" />
+              <div className="text-xs text-center">Home</div>
             </button>
           )}
           {!ChangeSearchLogo && (
             <button
-              className="flex justify-center col-start-3 duration-100 py-4 px-1"
+              className="grid grid-cols-1 flex justify-center col-start-3 duration-100 py-2 px-1 hover:text-gray-500 active:text-blue-500"
               onClick={() => {
                 props.click();
                 setChangeSearchLogo(true);
               }}
             >
-              <SlMagnifier />
+              <SlMagnifier className="mx-auto mb-0.5" />
+              <div className="text-xs text-center">Search</div>
             </button>
           )}
           <button
-            className="flex justify-center duration-100 py-4 px-1"
+            className="grid grid-cols-1 flex justify-center duration-100 py-2 px-1 hover:text-gray-500 active:text-blue-500"
             onClick={() => {
               props.mapClick();
               setChangeSearchLogo(true);
             }}
           >
-            <SlMap />
+            <SlMap className="mx-auto mb-0.5" />
+            <div className="text-xs text-center">Region</div>
           </button>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import { React } from "react";
-import "./pokemodal.css";
 import { IoClose } from "react-icons/io5";
 
 const PokeModal = (props) => {
@@ -16,7 +15,7 @@ const PokeModal = (props) => {
           aria-labelledby="Modal"
           aria-hidden="true"
         >
-          <div className="relative w-full h-full max-w-lg md:h-auto transition-all lg:translate-y-[-25px] duration-500 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]  ">
+          <div className="relative w-full h-full max-w-lg md:h-auto transition-all translate-y-[15px] lg:translate-y-[-25px] duration-500 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]  ">
             {/* Modal Content */}
             <div
               data-te-modal-dialog-ref
@@ -47,8 +46,8 @@ const PokeModal = (props) => {
                   </button>
                 </div>
               </div>
-              <div className="modal-body relative flex-auto px-3 pb-5 md:pb-8 md:px-5 pt-3">
-                <div className="pb-8 px-5 md:px-8">
+              <div className="modal-body relative flex-auto px-2 pb-5 md:pb-8 md:px-5 pt-3">
+                <div className="pb-7 px-5 md:px-8">
                   <img
                     className="mx-auto max-w-xs max-h-60"
                     src={
@@ -57,9 +56,9 @@ const PokeModal = (props) => {
                     alt={"Pokemon_image"}
                   />
                 </div>
-                <div className="px-4 sm:px-8">
-                  <div className="grid grid-cols-3 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-4 pb-1 text-sm">
-                    <p className="text-gray-100/70 text-medium">Type</p>
+                <div className="px-3 sm:px-8">
+                  <div className="grid grid-cols-3 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-4 pb-2 text-sm">
+                    <p className="text-gray-100/70 text-sm">Type</p>
                     {props.info.types.map((poke) => {
                       return (
                         <p
@@ -70,17 +69,25 @@ const PokeModal = (props) => {
                       );
                     })}
                   </div>
-                  <div className="px-5 py-2.5 leading-5">
-                    {props.info.stats.map((poke) => {
-                      return (
-                        <p className="capitalize font-medium text-gray-400/90">
-                          {poke.stat.name}:{" "}
-                          <span className={`${poke.stat.name}`}>
-                            {poke.base_stat}
-                          </span>
-                        </p>
-                      );
-                    })}
+                  <div className="bg-gray-100/10 rounded-lg px-2 py-3">
+                    <h5 className="text-gray-100/70 text-sm mb-1">Stats</h5>
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-0.5 px-1">
+                      {props.info.stats.map((poke) => {
+                        return (
+                          <div className="grid grid-cols-3">
+                            <p className="col-span-2 flex items-center capitalize text-gray-100/70 text-xs md:text-sm">
+                              {poke.stat.name}:{" "}
+                            </p>
+                            <span
+                              className={`${poke.stat.name} col-span-1 flex items-center justify-center 
+                      rounded text-xs md:text-base bg-red-100 text-center`}
+                            >
+                              {poke.base_stat}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                   <div>
                     <h5 className="-mb-1.5 pt-1 text-sm font-medium text-gray-100/70 capitalize">

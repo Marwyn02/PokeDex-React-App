@@ -57,7 +57,7 @@ const SearchHomePage = () => {
       )}
       {loading && <LoadingSpinner />}
       {!loading && pokemon ? (
-        <div className="p-12 lg:pt-3">
+        <div className="px-6 py-8 lg:pt-3">
           <h1 className="capitalize text-3xl font-bold tracking-wide text-center mb-3">
             {pokemon.name}
           </h1>
@@ -81,9 +81,29 @@ const SearchHomePage = () => {
                 );
               })}
             </div>
-            <div className="grid grid-cols-2 flex items-center justify-center mb-1 md:mb-3">
+            <div className="grid grid-cols-2 flex items-center justify-center py-1.5 mb-1 md:mb-2">
               <p className="text-black/75 text-sm md:text-base">ID</p>
               <p className="text-xs md:text-base">{pokemon.id}</p>
+            </div>
+            <div className="bg-indigo-400/60 rounded-lg px-2 py-3">
+              <h5 className="text-black/75 text-sm mb-1">Stats</h5>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-0.5 px-1">
+                {pokemon.stats.map((poke) => {
+                  return (
+                    <div className="grid grid-cols-3">
+                      <p className="col-span-2 flex items-center capitalize text-black/75 text-xs md:text-sm">
+                        {poke.stat.name}:{" "}
+                      </p>
+                      <span
+                        className={`${poke.stat.name} col-span-1 flex items-center justify-center 
+                      rounded text-xs md:text-base bg-red-100 text-center`}
+                      >
+                        {poke.base_stat}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

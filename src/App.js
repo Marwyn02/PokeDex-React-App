@@ -11,6 +11,7 @@ import Footer from "./Components/Footer/Footer";
 import LoadingSpinner from "./Components/UI/LoadingSpinner";
 import axios from "axios";
 import "tw-elements";
+import "./App.css";
 
 const App = () => {
   const [Pokedata, setPokedata] = useState([]);
