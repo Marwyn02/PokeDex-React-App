@@ -10,6 +10,7 @@ import LandingPage from "./Components/LandingPage/LandingPage";
 import Footer from "./Components/Footer/Footer";
 import LoadingSpinner from "./Components/UI/LoadingSpinner";
 import axios from "axios";
+import ErrorInput from "./Components/UI/ErrorInput";
 import "tw-elements";
 import "./App.css";
 
@@ -29,10 +30,6 @@ const App = () => {
       try {
         setIsLoading(true);
         const res = await axios.get(URL);
-        // console.log(res);
-        // if (!res.ok) {
-        //   throw new Error("Something went wrong");
-        // }
         setNextURL(res.data.next);
         setPrevURL(res.data.previous);
         getPokemon(res.data.results);
@@ -69,12 +66,10 @@ const App = () => {
   }
   if (error) {
     PokemonContent = (
-      <div className="text-center mx-5 md:mx-32 lg:mx-60 py-5 mb-20 border-y-4 border-red-400/50">
-        <p className="text-sm">There's something wrong with the server.</p>
-        <p className="text-lg font-bold tracking-wide">
-          Please try it again next time.
-        </p>
-      </div>
+      <ErrorInput
+        errorTitle={"There's something wrong with the server."}
+        errorMsg={"Please try it again next time."}
+      />
     );
   }
   if (isLoading) {

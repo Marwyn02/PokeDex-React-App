@@ -2,6 +2,7 @@ import { React } from "react";
 import { IoClose } from "react-icons/io5";
 
 const PokeModal = (props) => {
+  // console.log(props.info);
   return (
     <>
       {!props.info ? (
@@ -15,22 +16,26 @@ const PokeModal = (props) => {
           aria-labelledby="Modal"
           aria-hidden="true"
         >
-          <div className="relative w-full h-full max-w-lg md:h-auto transition-all translate-y-[15px] lg:translate-y-[-25px] duration-500 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]  ">
+          <div className="relative w-full h-full max-w-lg md:h-auto transition-all translate-y-[20px] lg:translate-y-[-25px] duration-500 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]  ">
             {/* Modal Content */}
             <div
+              key={props.info.id}
               data-te-modal-dialog-ref
               className="pointer-events-auto relative rounded-lg shadow bg-gray-800 min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] flex w-full flex-col border-none bg-white bg-clip-padding text-current shadow-lg outline-none"
             >
               <div className="flex grid grid-cols-4 items-center justify-center p-4 md:p-7 rounded-t dark:border-gray-600">
                 <h6 className="text-xl sm:text-2xl text-white/90 font-medium">
-                  <span className="text-xs sm:text-md font-normal text-gray-100/70">
+                  <span className="text-xs sm:text-md font-normal mr-0.5 text-gray-100/70">
                     No
                   </span>
                   {props.info.id}
                 </h6>
                 <h2
-                  className="text-2xl col-span-2 md:text-3xl font-bold text-white/90 subpixel-antialiased text-center capitalize sm:tracking-wide"
-                  id={props.info.name}
+                  className={
+                    props.info.name.length < 13
+                      ? "rounded-full text-2xl col-span-2 md:text-3xl font-bold text-white/90 subpixel-antialiased text-center capitalize sm:tracking-wide bg-gray-900/60"
+                      : "rounded-full text-lg col-span-2 md:text-xl font-bold text-white/90 subpixel-antialiased text-center capitalize sm:tracking-wide bg-gray-900/60"
+                  }
                 >
                   {props.info.name}
                 </h2>
@@ -46,19 +51,19 @@ const PokeModal = (props) => {
                   </button>
                 </div>
               </div>
-              <div className="modal-body relative flex-auto px-2 pb-5 md:pb-8 md:px-5 pt-3">
-                <div className="pb-7 px-5 md:px-8">
+              <div className="modal-body relative flex-auto px-2 py-3 md:pb-5 md:px-5">
+                <div className="pb-2 px-5 md:px-8 flex justify-center items-center">
                   <img
-                    className="mx-auto max-w-xs max-h-60"
+                    className="max-w-xs max-h-60 lg:max-h-96"
                     src={
                       props.info.sprites.other["official-artwork"].front_default
                     }
                     alt={"Pokemon_image"}
                   />
                 </div>
-                <div className="px-3 sm:px-8">
-                  <div className="grid grid-cols-3 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-4 pb-2 text-sm">
-                    <p className="text-gray-100/70 text-sm">Type</p>
+                <div className="px-3 pb-3 md:mt-2 md:p-4 bg-gray-900/60 rounded-lg">
+                  <div className="grid grid-cols-3 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white py-4 md:pt-1 text-sm">
+                    <p className="text-gray-100/80 text-sm">Type</p>
                     {props.info.types.map((poke) => {
                       return (
                         <p
@@ -70,7 +75,7 @@ const PokeModal = (props) => {
                     })}
                   </div>
                   <div className="bg-gray-100/10 rounded-lg px-2 py-3">
-                    <h5 className="text-gray-100/70 text-sm mb-1">Stats</h5>
+                    <h5 className="text-gray-100/80 text-sm mb-1">Stats</h5>
                     <div className="grid grid-cols-2 gap-x-4 gap-y-0.5 px-1">
                       {props.info.stats.map((poke) => {
                         return (
@@ -89,18 +94,18 @@ const PokeModal = (props) => {
                       })}
                     </div>
                   </div>
-                  <div>
-                    <h5 className="-mb-1.5 pt-1 text-sm font-medium text-gray-100/70 capitalize">
-                      Moves
+                  <div className="bg-gray-50/5 p-2 rounded-lg mt-2">
+                    <h5 className="-mb-1.5 py-1 text-sm font-medium text-gray-100/80 capitalize">
+                      Abilities
                     </h5>
-                    <div className="grid grid-cols-2 gap-1.5 md:gap-2 mb-2 px-10 py-2">
-                      {props.info.moves.slice(0, 4).map((poke) => {
+                    <div className="grid grid-cols-2 gap-1.5 md:gap-2 px-10 py-2">
+                      {props.info.abilities.map((poke) => {
                         return (
                           <p
-                            className="capitalize text-xs sm:text-sm border border-gray-600 text-gray-300/60
-                          text-center w-auto font-bold"
+                            className="flex justify-center items-center capitalize text-xs sm:text-sm border border-gray-600 text-white/80
+                            rounded"
                           >
-                            {poke.move.name}
+                            {poke.ability.name}
                           </p>
                         );
                       })}
