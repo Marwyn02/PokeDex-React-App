@@ -1,0 +1,98 @@
+import React from "react";
+
+const SearchPokemonData = (props) => {
+  return (
+    <>
+      {!props.poke ? (
+        ""
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-5 lg:grid-cols-4 gap-x-2">
+          <div
+            key={props.poke.id}
+            className="px-5 py-8 sm:col-start-2 sm:col-span-3 lg:col-start-2 lg:col-span-2 lg:pt-3"
+          >
+            <h1 className="capitalize text-3xl md:text-4xl lg:text-6xl font-bold tracking-wide text-center mb-3">
+              {props.poke.name}
+            </h1>
+            <div className="px-6">
+              <img
+                className="mx-auto"
+                src={props.poke.sprites.other["official-artwork"].front_default}
+                alt="Pokemon_image"
+              />
+            </div>
+            <div>
+              <div className="bg-gray-400/30 rounded-lg p-3 mt-2">
+                <div className="grid grid-cols-3 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white/90 py-1">
+                  <p className="text-black/75 text-sm md:text-base">Type</p>
+                  {props.poke.types.map((poke) => {
+                    return (
+                      <p
+                        className={`${poke.type.name} rounded-md text-center text-xs py-0.5 capitalize md:text-base`}
+                      >
+                        {poke.type.name}
+                      </p>
+                    );
+                  })}
+                </div>
+                {/* ID */}
+                <div className="grid grid-cols-2 flex items-center justify-center py-1.5 mb-1 md:mb-2">
+                  <p className="text-black/75 text-sm md:text-base">ID</p>
+                  <p className="text-xs md:text-base">{props.poke.id}</p>
+                </div>
+                {/* Stats */}
+                <div className="bg-blue-600/20 rounded-lg px-2 py-3">
+                  <h5 className="text-black/75 text-sm mb-1">Stats</h5>
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-0.5 px-1">
+                    {props.poke.stats.map((pokemon) => {
+                      return (
+                        <div className="grid grid-cols-3">
+                          <p className="col-span-2 flex items-center capitalize text-black/75 text-xs md:text-sm">
+                            {pokemon.stat.name}:{" "}
+                          </p>
+                          <span
+                            className={`${pokemon.stat.name} col-span-1 flex items-center justify-center 
+                      rounded text-xs md:text-base text-center`}
+                          >
+                            {pokemon.base_stat}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+              {/* Ability */}
+              <div className="grid grid-cols-2">
+                <div className="bg-gray-200/75 p-3 rounded-lg mt-2">
+                  <h5 className="-mb-1.5 py-1 text-sm font-medium text-black/75 capitalize">
+                    Abilities
+                  </h5>
+                  <div className="py-2 px-6 grid gap-y-1">
+                    {props.poke.abilities.map((pokemon) => {
+                      return (
+                        <p
+                          className="flex justify-center items-center py-0.5 capitalize text-xs sm:text-sm bg-gray-900/60 text-white/80
+                        w-auto rounded"
+                        >
+                          {pokemon.ability.name}
+                        </p>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+              {/* {props.poke.shape && (
+                <div className="text-lg text-black">
+                  {props.poke.shape.name}
+                </div>
+              )} */}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default SearchPokemonData;

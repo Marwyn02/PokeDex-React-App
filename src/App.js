@@ -36,7 +36,6 @@ const App = () => {
         setIsLoading(false);
       } catch (error) {
         setError(true);
-        // console.log("You got an error", error);
         setIsLoading(false);
       }
     };
