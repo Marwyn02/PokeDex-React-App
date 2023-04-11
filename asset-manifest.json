@@ -1,15 +1,15 @@
 {
-  "files": {
-    "main.css": "/PokeDex-React-App/static/css/main.749fa307.css",
-    "main.js": "/PokeDex-React-App/static/js/main.d44b4428.js",
-    "static/media/Pokeball.png": "/PokeDex-React-App/static/media/Pokeball.0c681e75c8c30f6ed631.png",
-    "static/media/UnderConstructionIcon.png": "/PokeDex-React-App/static/media/UnderConstructionIcon.23dacb103c0e5faa88e5.png",
-    "index.html": "/PokeDex-React-App/index.html",
-    "main.749fa307.css.map": "/PokeDex-React-App/static/css/main.749fa307.css.map",
-    "main.d44b4428.js.map": "/PokeDex-React-App/static/js/main.d44b4428.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.749fa307.css",
-    "static/js/main.d44b4428.js"
-  ]
+  "main.css": "/PokeDex-React-App/static/css/main.73ea5216.chunk.css",
+  "main.js": "/PokeDex-React-App/static/js/main.c0775e8a.chunk.js",
+  "main.js.map": "/PokeDex-React-App/static/js/main.c0775e8a.chunk.js.map",
+  "static/js/1.c7ac6a3a.chunk.js": "/PokeDex-React-App/static/js/1.c7ac6a3a.chunk.js",
+  "static/js/1.c7ac6a3a.chunk.js.map": "/PokeDex-React-App/static/js/1.c7ac6a3a.chunk.js.map",
+  "runtime~main.js": "/PokeDex-React-App/static/js/runtime~main.ecd816fd.js",
+  "runtime~main.js.map": "/PokeDex-React-App/static/js/runtime~main.ecd816fd.js.map",
+  "static/media/Pokeball.png": "/PokeDex-React-App/static/media/Pokeball.bc029440.png",
+  "static/media/UnderConstructionIcon.png": "/PokeDex-React-App/static/media/UnderConstructionIcon.4e6e2803.png",
+  "static/css/main.73ea5216.chunk.css.map": "/PokeDex-React-App/static/css/main.73ea5216.chunk.css.map",
+  "index.html": "/PokeDex-React-App/index.html",
+  "precache-manifest.05e1d4fd51bcc5578412b1b3e1cb455a.js": "/PokeDex-React-App/precache-manifest.05e1d4fd51bcc5578412b1b3e1cb455a.js",
+  "service-worker.js": "/PokeDex-React-App/service-worker.js"
 }
