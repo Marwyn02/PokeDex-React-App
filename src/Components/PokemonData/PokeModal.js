@@ -1,4 +1,4 @@
-import { React } from "react";
+import React from "react";
 import { IoClose } from "react-icons/io5";
 
 const PokeModal = (props) => {
@@ -33,8 +33,8 @@ const PokeModal = (props) => {
                 <h2
                   className={
                     props.info.name.length < 13
-                      ? "rounded-full text-2xl col-span-2 md:text-3xl font-bold text-white/90 subpixel-antialiased text-center capitalize sm:tracking-wide bg-gray-900/60"
-                      : "rounded-full text-lg col-span-2 md:text-xl font-bold text-white/90 subpixel-antialiased text-center capitalize sm:tracking-wide bg-gray-900/60"
+                      ? "rounded-full text-2xl col-span-2 md:text-3xl font-bold text-white/90 subpixel-antialiased text-center capitalize sm:tracking-wide bg-gray-900/30"
+                      : "rounded-full text-lg col-span-2 md:text-xl font-bold text-white/90 subpixel-antialiased text-center capitalize sm:tracking-wide bg-gray-900/30"
                   }
                 >
                   {props.info.name}
@@ -61,7 +61,8 @@ const PokeModal = (props) => {
                     alt={"Pokemon_image"}
                   />
                 </div>
-                <div className="px-3 pb-3 md:mt-2 md:p-4 bg-gray-900/60 rounded-lg">
+                {/* Pokemon Stats */}
+                <div className="px-3 pb-4 md:mt-2 md:p-4 rounded-lg border border-white/50">
                   <div className="grid grid-cols-3 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white py-4 md:pt-1 text-sm">
                     <p className="text-gray-100/80 text-sm">Type</p>
                     {props.info.types.map((poke) => {
@@ -94,7 +95,7 @@ const PokeModal = (props) => {
                       })}
                     </div>
                   </div>
-                  <div className="bg-gray-50/5 p-2 rounded-lg mt-2">
+                  <div className="bg-gray-100/10 p-2 rounded-lg mt-2">
                     <h5 className="-mb-1.5 py-1 text-sm font-medium text-gray-100/80 capitalize">
                       Abilities
                     </h5>

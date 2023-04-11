@@ -11,6 +11,7 @@ import Footer from "./Components/Footer/Footer";
 import LoadingSpinner from "./Components/UI/LoadingSpinner";
 import axios from "axios";
 import ErrorInput from "./Components/UI/ErrorInput";
+import RGBBorder from "./Components/UI/RGBBorder";
 import "tw-elements";
 import "./App.css";
 
@@ -24,6 +25,7 @@ const App = () => {
   const [searchPanel, setSearchPanel] = useState(false);
   const [mapSearch, setMapSearch] = useState(false);
   const [error, setError] = useState(false);
+  const [countingLoading, setCountingLoading] = useState(false);
 
   useEffect(() => {
     const pokemonFun = async () => {
@@ -52,6 +54,10 @@ const App = () => {
         return prevPokemon;
       });
     });
+  };
+
+  const countingLoadingHandler = () => {
+    setCountingLoading(true);
   };
 
   let PokemonContent = <p> </p>;
@@ -90,41 +96,50 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <LandingPage />
-      <Navbar
-        click={SearchPanelHandler}
-        homeClick={HomePageHandler}
-        mapClick={MapSearchHandler}
+      <LandingPage
+        countingLoad={countingLoadingHandler}
+        percLoading={isLoading}
       />
-      <NavbarDesktop
-        searchClick={SearchPanelHandler}
-        homeClick={HomePageHandler}
-        mapClick={MapSearchHandler}
-      />
-      {mapSearch && <MapHomePage />}
-      {searchPanel && <SearchHomePage />}
-      {!searchPanel && !mapSearch && (
-        <div className="mx-3 md:mx-20 lg:mx-32 xl:mx-40 2xl:mx-96 2xl:px-20">
-          {
-            <div>
-              <PokePageButton
-                setData={setPokedata}
-                prev={prevURL}
-                next={nextURL}
-                switch={setURL}
-              />
-              {PokemonContent}
-              <PokePageButton
-                setData={setPokedata}
-                prev={prevURL}
-                next={nextURL}
-                switch={setURL}
-              />
+
+      {countingLoading && (
+        <>
+          <RGBBorder />
+          <Navbar
+            click={SearchPanelHandler}
+            homeClick={HomePageHandler}
+            mapClick={MapSearchHandler}
+          />
+          <NavbarDesktop
+            searchClick={SearchPanelHandler}
+            homeClick={HomePageHandler}
+            mapClick={MapSearchHandler}
+          />
+          {mapSearch && <MapHomePage />}
+          {searchPanel && <SearchHomePage />}
+          {!searchPanel && !mapSearch && (
+            <div className="mx-3 md:mx-20 lg:mx-32 xl:mx-40 2xl:mx-96 2xl:px-20">
+              {
+                <div>
+                  <PokePageButton
+                    setData={setPokedata}
+                    prev={prevURL}
+                    next={nextURL}
+                    switch={setURL}
+                  />
+                  {PokemonContent}
+                  <PokePageButton
+                    setData={setPokedata}
+                    prev={prevURL}
+                    next={nextURL}
+                    switch={setURL}
+                  />
+                </div>
+              }
             </div>
-          }
-        </div>
+          )}
+          <Footer />
+        </>
       )}
-      <Footer />
     </React.Fragment>
   );
 };

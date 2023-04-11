@@ -1,58 +1,88 @@
-import { useEffect, useRef } from "react";
-import Pokeball from "./Pokeball.png";
-import { gsap, ScrollTrigger, ScrollToPlugin } from "gsap/all";
+import React, { useState } from "react";
+import { gsap } from "gsap/all";
+import CountUp from "react-countup";
 import "./landing.css";
 
-const LandingPage = () => {
-  if (typeof window !== `undefined`) {
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-    gsap.core.globals("ScrollTrigger", ScrollTrigger);
-  }
+const LandingPage = (props) => {
+  const [counting, setCounting] = useState(false);
+  const [buttonOpen, setButtonOpen] = useState(false);
 
-  const uRef = useRef(null);
-
-  useEffect(() => {
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".front-page",
-        start: "0%",
-        end: "100%",
-        scrub: true,
-        pin: true,
-      },
-    });
+  const onEnd = () => {
+    setButtonOpen(true);
+  };
+  const openApp = () => {
+    let tl = gsap.timeline({ defaults: { ease: "power1.out" } });
     tl.fromTo(
-      ".front-page",
-      { clipPath: "circle(5%)" },
-      { clipPath: "circle(75%)", duration: 3 }
+      ".upper-bg",
+      {
+        y: "0%",
+        duration: 1,
+      },
+      { y: "-100%", duration: 2 }
     );
-    tl.fromTo(".pokeball", { scale: 1.8 }, { scale: 0, duration: 1 }, "-=3");
-    tl.fromTo(".title", { opacity: 0 }, { opacity: 1, duration: 1 });
-    tl.fromTo(".sub-title", { opacity: 0 }, { opacity: 1, duration: 1 });
-  }, []);
+    tl.fromTo(
+      ".lower-bg",
+      {
+        y: "0%",
+        duration: 1,
+      },
+      { y: "100%", duration: 2 },
+      "-=2"
+    );
+    tl.fromTo(
+      ".openButton",
+      {
+        opacity: 1,
+        duration: 1,
+      },
+      { opacity: 0, duration: 1 },
+      "-=10"
+    );
 
+    setTimeout(() => {
+      setCounting(true);
+      props.countingLoad();
+      // console.log("Yes");
+    }, 2000);
+  };
   return (
     <>
-      <div className="bg-black/90 z-20 relative">
-        <div
-          ref={uRef}
-          className="front-page bg-white h-screen w-full grid place-items-center relative px-5 sm:px-0 "
-        >
-          <div className="text-black/70 mb-2">
-            <h1 className="title text-2xl md:text-5xl font-bold md:mb-1">
-              Welcome to Pokemon Index
-            </h1>
-            <p className="sub-title text-sm sm:text-base md:text-2xl">
-              Check out your favorite pokemon
-            </p>
-            <img
-              className="pokeball h-5 md:h-8 mx-auto"
-              src={Pokeball}
-              alt="pokeball"
-            />
+      {!counting && (
+        <div className="black-screen absolute top-100 left-0 h-screen w-full z-20">
+          <div
+            id="intro"
+            className="upper-bg bg-red-500/90 h-1/2 border-b-4 border-black"
+          ></div>
+          <div className="absolute grid content-center flex justify-center items-center w-full h-auto my-auto">
+            {!buttonOpen && (
+              <div
+                className="cursor-default absolute place-self-center border-8 border-black
+              bg-white py-9 w-28 rounded-full"
+              >
+                <p className="percent text-center text-black/50 hover:text-black duration-300">
+                  <CountUp
+                    start={0}
+                    end={100}
+                    delay={0.7}
+                    duration={10}
+                    onEnd={onEnd}
+                  />
+                  %
+                </p>
+              </div>
+            )}
+            {buttonOpen && (
+              <div className="openButton group absolute place-self-center border-8 border-black p-4 bg-white rounded-full duration-300">
+                <button
+                  className="bg-white p-8 rounded-full duration-300 border-2 border-black group-hover:bg-red-500/40"
+                  onClick={openApp}
+                ></button>
+              </div>
+            )}
           </div>
+          <div className="lower-bg bg-gray-500 h-1/2 border-t-4 border-black"></div>
         </div>
-      </div>
+      )}
     </>
   );
 };

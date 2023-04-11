@@ -52,7 +52,11 @@ const SearchHomePage = () => {
   };
   return (
     <>
-      <SearchBar getPokemon={getSinglePokemon} />
+      <SearchBar
+        noInputError={noInput}
+        inputError={error}
+        getPokemon={getSinglePokemon}
+      />
       {error && (
         <ErrorInput
           errorTitle={"Invalid input."}
@@ -65,6 +69,9 @@ const SearchHomePage = () => {
           errorMsg={"You can search 'Pikachu' if you want."}
         />
       )}
+      {!error && !noInput && !pokemon && !loading ? (
+        <div className="h-screen w-full"></div>
+      ) : null}
       {loading && <LoadingSpinner />}
       {!loading && pokemon ? <SearchPokemonData poke={pokemon} /> : null}
     </>

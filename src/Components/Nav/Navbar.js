@@ -1,3 +1,4 @@
+import React from "react";
 import "./navbar.css";
 import { SlHome, SlMagnifier, SlMap } from "react-icons/sl";
 

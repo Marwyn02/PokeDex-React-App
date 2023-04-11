@@ -6,7 +6,7 @@ const UtilsBar = (props) => {
     <div>
       {/* Utility bar is for desktop view navbar  */}
       <div
-        className="hidden md:block group w-full bg-black/80 mt-20 mb-14 border-b-4 border-white/60
+        className="hidden md:block group w-full bg-black/80 mb-14 border-b-4 border-white/60
       hover:bg-gray-50 hover:border-black duration-300"
       >
         <div className="mx-20 grid grid-cols-3 md:grid-cols-10 gap-2">

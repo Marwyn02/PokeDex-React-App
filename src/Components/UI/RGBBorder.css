@@ -1,0 +1,28 @@
+.hero-border {
+  width: auto;
+  height: 5px;
+  text-align: center;
+  border-top: 5px solid;
+  border-image: linear-gradient(
+      to right,
+      #9bcb50 5.5%,
+      #fd7d24 11%,
+      #4592c4 16.5%,
+      rgb(235, 209, 38) 22%,
+      #50c4e7 27.5%,
+      #b87ec8 33%,
+      #ab9842 38.5%,
+      #b7c1c3 44%,
+      rgb(219, 77, 207) 49.5%,
+      #7b62a2 55%,
+      #719f3e 60.5%,
+      #a28c21 66%,
+      #452fd8 71.5%,
+      #a3acae 77%,
+      rgb(255, 148, 191) 82.5%,
+      #707070 88%,
+      #d56723 93.5%,
+      #9db7b7 99%
+    )
+    5;
+}

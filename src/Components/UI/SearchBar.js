@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 
 const SearchBar = (props) => {
@@ -9,10 +9,7 @@ const SearchBar = (props) => {
   };
   return (
     <>
-      <form
-        className="mt-10 py-10 border-y md:border-0 border-black/20"
-        onSubmit={submitHandler}
-      >
+      <form className="py-8" onSubmit={submitHandler}>
         <div className="flex justify-center items-center grid grid-cols-1 px-6 md:px-20 lg:px-40">
           <label
             htmlFor="name"
@@ -22,7 +19,11 @@ const SearchBar = (props) => {
           </label>
           <div className="grid grid-cols-3 gap-2 md:px-10 lg:px-32 ">
             <input
-              className="border py-1 col-span-2"
+              className={
+                props.inputError || props.noInputError
+                  ? "border py-1 col-span-2 border-rose-500 bg-transparent focus:ring-0"
+                  : "py-1 col-span-2 bg-transparent focus:ring-0"
+              }
               type="text"
               id="name"
               onChange={(e) => setSearch(e.target.value.toLowerCase())}
@@ -30,6 +31,20 @@ const SearchBar = (props) => {
             />
             <Button onClick={(e) => props.getPokemon(search)}>Search</Button>
           </div>
+          {props.noInputError || props.inputError ? (
+            <div className="border border-black/50 rounded p-2 mt-2 bg-gray-100/40 md:mx-10 lg:mx-32">
+              <p className="bg-gray-200/80 rounded py-1 px-3 inline text-xs">
+                TIP:
+              </p>
+              <span className="ml-2 text-sm">
+                You may use (
+                <span className="inline font-bold">pokemon-name</span>)-'
+                <span className="inline font-bold">mega</span>', '
+                <span className="inline font-bold">alola</span>' or their
+                variants.
+              </span>
+            </div>
+          ) : null}
         </div>
       </form>
     </>
