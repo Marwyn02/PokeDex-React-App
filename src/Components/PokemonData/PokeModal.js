@@ -1,5 +1,6 @@
 import React from "react";
 import { IoClose } from "react-icons/io5";
+import Pokeball from "./Data-UI/Pokeball-bg-icon.png";
 
 const PokeModal = (props) => {
   // console.log(props.info);
@@ -21,7 +22,7 @@ const PokeModal = (props) => {
             <div
               key={props.info.id}
               data-te-modal-dialog-ref
-              className="pointer-events-auto relative rounded-lg shadow bg-gray-800 min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] flex w-full flex-col border-none bg-white bg-clip-padding text-current shadow-lg outline-none"
+              className={`pointer-events-auto relative rounded-lg shadow ${props.info.types[0].type.name}-bg min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] flex w-full flex-col border-none bg-white bg-clip-padding text-current shadow-lg outline-none`}
             >
               <div className="flex grid grid-cols-4 items-center justify-center p-4 md:p-7 rounded-t dark:border-gray-600">
                 <h6 className="text-xl sm:text-2xl text-white/90 font-medium">
@@ -42,7 +43,7 @@ const PokeModal = (props) => {
                 <div className="flex justify-end">
                   <button
                     type="button"
-                    className=" box-content border-none rounded-none opacity-50 
+                    className=" box-content border-none rounded-none  
                   focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
                     data-te-modal-dismiss
                     aria-label="Close"
@@ -51,18 +52,26 @@ const PokeModal = (props) => {
                   </button>
                 </div>
               </div>
-              <div className="modal-body relative flex-auto px-2 py-3 md:pb-5 md:px-5">
-                <div className="pb-2 px-5 md:px-8 flex justify-center items-center">
+              <div className="modal-body relative flex-auto px-2 py-3 md:pb-5 md:px-5 overflow-hidden pointer-events-none">
+                <div className="pb-2 px-5 md:px-8 flex justify-center items-center ">
                   <img
-                    className="max-w-xs max-h-60 lg:max-h-96"
+                    className="max-w-xs max-h-60 lg:max-h-96 z-10"
                     src={
                       props.info.sprites.other["official-artwork"].front_default
                     }
                     alt={"Pokemon_image"}
                   />
                 </div>
+                <div className="absolute bottom-24 -right-24 md:bottom-44 md:-right-20 z-0">
+                  <img
+                    className="opacity-5 w-80 -rotate-12"
+                    src={Pokeball}
+                    alt=""
+                  />
+                </div>
+
                 {/* Pokemon Stats */}
-                <div className="px-3 pb-4 md:mt-2 md:p-4 rounded-lg border border-white/50">
+                <div className="relative px-3 pb-4 md:mt-2 md:p-4 rounded-lg border border-white/50 z-40">
                   <div className="grid grid-cols-3 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white py-4 md:pt-1 text-sm">
                     <p className="text-gray-100/80 text-sm">Type</p>
                     {props.info.types.map((poke) => {
@@ -103,7 +112,7 @@ const PokeModal = (props) => {
                       {props.info.abilities.map((poke) => {
                         return (
                           <p
-                            className="flex justify-center items-center capitalize text-xs sm:text-sm border border-gray-600 text-white/80
+                            className="abilities-bg flex justify-center items-center capitalize text-xs opacity-90 sm:text-sm text-black/70
                             rounded"
                           >
                             {poke.ability.name}

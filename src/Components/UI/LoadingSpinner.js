@@ -5,15 +5,17 @@ import "./LoadingSpinner.css";
 const LoadingSpinner = () => {
   return (
     <>
-      <div className="py-32">
-        <img
-          className="animate-spin h-12 md:h-8 mx-auto"
-          src={Pokeball}
-          alt="Loading..."
-        />
-        <p className="text-black/80 text-sm md:text-base text-center pt-5">
-          Please wait, we'll find them for you.
-        </p>
+      <div className="h-96 bg-gradient-to-b from-white/50 to-gray-300 grid">
+        <div className="place-self-center">
+          <img
+            className="animate-spin h-12 md:h-8 mx-auto"
+            src={Pokeball}
+            alt="Loading..."
+          />
+          <p className="text-black/80 text-sm md:text-base text-center mt-5">
+            Please wait, we'll find them for you.
+          </p>
+        </div>
       </div>
     </>
   );

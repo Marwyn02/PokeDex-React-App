@@ -3,7 +3,10 @@ import React from "react";
 const PokeList = (props) => {
   return (
     <>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-1 sm:gap-1.5 md:gap-2 lg:gap-3.5 mb-3 md:mt-16 duration-300">
+      <div
+        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 
+      gap-1 sm:gap-1.5 md:gap-2 lg:gap-3.5 mb-3 md:my-10 duration-300"
+      >
         {props.data.map((item) => {
           return (
             <div>
@@ -14,7 +17,7 @@ const PokeList = (props) => {
                 data-te-toggle="modal"
                 data-te-target="#myModal"
               >
-                <div className="mx-w-sm border border-black group-hover:border-gray-100 capitalize relative">
+                <div className="mx-w-sm border border-black group-hover:border-gray-100 capitalize relative pointer-events-none">
                   <span className="font-light text-md md:text-2xl ml-2 absolute group-hover:font-bold group-hover:z-10 group-hover:text-2xl group-hover:ml-0 duration-300">
                     {item.id}
                   </span>

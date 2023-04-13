@@ -6,10 +6,10 @@ const SearchPokemonData = (props) => {
       {!props.poke ? (
         ""
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-5 lg:grid-cols-4 gap-x-2">
+        <div className="pointer-events-none grid grid-cols-1 sm:grid-cols-5 lg:grid-cols-4 gap-x-2 bg-gradient-to-b from-white/50 to-gray-300">
           <div
             key={props.poke.id}
-            className="px-5 py-8 sm:col-start-2 sm:col-span-3 lg:col-start-2 lg:col-span-2 lg:pt-3"
+            className="px-5 pb-8 sm:col-start-2 sm:col-span-3 lg:col-start-2 lg:col-span-2"
           >
             <h1 className="capitalize text-3xl md:text-4xl lg:text-6xl font-bold sm:tracking-wide text-center mb-1.5">
               {props.poke.name}
@@ -72,7 +72,7 @@ const SearchPokemonData = (props) => {
                     {props.poke.abilities.map((pokemon) => {
                       return (
                         <p
-                          className="flex justify-center items-center py-0.5 capitalize text-xs sm:text-sm bg-gray-900/60 text-white/80
+                          className="abilities-bg flex justify-center items-center py-0.5 capitalize text-xs sm:text-sm text-black/70
                         w-auto rounded"
                         >
                           {pokemon.ability.name}

@@ -26,6 +26,7 @@ const App = () => {
   const [mapSearch, setMapSearch] = useState(false);
   const [error, setError] = useState(false);
   const [countingLoading, setCountingLoading] = useState(false);
+  // ^^ this must be false ^^
 
   useEffect(() => {
     const pokemonFun = async () => {
@@ -47,7 +48,7 @@ const App = () => {
   const getPokemon = (res) => {
     res.map(async (item) => {
       const result = await axios.get(item.url);
-      // console.log(result.data);
+      console.log(result.data);
       setPokedata((prevPokemon) => {
         prevPokemon = [...prevPokemon, result.data];
         prevPokemon.sort((a, b) => (a.id > b.id ? 1 : -1));
@@ -117,7 +118,7 @@ const App = () => {
           {mapSearch && <MapHomePage />}
           {searchPanel && <SearchHomePage />}
           {!searchPanel && !mapSearch && (
-            <div className="mx-3 md:mx-20 lg:mx-32 xl:mx-40 2xl:mx-96 2xl:px-20">
+            <div className="mx-3 md:mx-20 lg:mx-32 xl:mx-40 2xl:mx-96 2xl:px-20 md:my-16">
               {
                 <div>
                   <PokePageButton

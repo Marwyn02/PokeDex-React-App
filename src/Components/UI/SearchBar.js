@@ -7,9 +7,17 @@ const SearchBar = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
   };
+  // "py-8"
   return (
     <>
-      <form className="py-8" onSubmit={submitHandler}>
+      <form
+        className={
+          props.inputError || props.noInputError
+            ? "pt-8 -mb-10 "
+            : "py-10 md:pt-10 md:pb-20"
+        }
+        onSubmit={submitHandler}
+      >
         <div className="flex justify-center items-center grid grid-cols-1 px-6 md:px-20 lg:px-40">
           <label
             htmlFor="name"

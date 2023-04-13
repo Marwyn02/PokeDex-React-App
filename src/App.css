@@ -2,75 +2,58 @@
   background-color: #9bcb50;
   color: #232322;
 }
-
 .fire {
   background-color: #fd7d24;
 }
-
 .water {
   background-color: #4592c4;
 }
-
 .electric {
   background-color: rgb(235, 209, 38);
   color: #232322;
 }
-
 .ice {
   background-color: #50c4e7;
   color: #232322;
 }
-
 .fighting {
   background-color: #d56723;
 }
-
 .poison {
   background-color: #b87ec8;
 }
-
 .ground {
   background-color: #ab9842;
 }
-
 .flying {
   background: linear-gradient(to bottom, rgb(161, 215, 230) 50%, #b7c1c3 50%);
   color: #232322;
 }
-
 .psychic {
   background-color: rgb(219, 77, 207);
 }
-
 .ghost {
   background-color: #7b62a2;
 }
-
 .bug {
   background-color: #719f3e;
 }
-
 .rock {
   background-color: #a28c21;
 }
-
 .dragon {
   background: linear-gradient(to bottom, #452fd8 50%, #d77132 50%);
 }
-
 .normal {
   background-color: #a3acae;
 }
-
 .fairy {
   background-color: rgb(255, 148, 191);
   color: #232322;
 }
-
 .dark {
   background-color: #707070;
 }
-
 .steel {
   background-color: #9db7b7;
 }
@@ -112,6 +95,63 @@
   }
 }
 
+.grass-bg {
+  background-image: linear-gradient(to bottom, #57a32c, #377d46);
+}
+.fire-bg {
+  background-image: linear-gradient(to bottom, #eaaa01, #ca3902);
+}
+.water-bg {
+  background-image: linear-gradient(to bottom, #8ec5e1, #034e81);
+}
+.electric-bg {
+  background-image: linear-gradient(to bottom, #fbde67, #d67b08);
+}
+.ice-bg {
+  background-image: linear-gradient(to bottom, #08d4de, #0335cb);
+}
+.fighting-bg {
+  background-image: linear-gradient(to bottom, #dc944f, #80371c);
+}
+.poison-bg {
+  background-image: linear-gradient(to bottom, #a22497, #1e076c);
+}
+.ground-bg {
+  background-image: linear-gradient(to bottom, #d4b495, #674e2f);
+}
+.flying-bg {
+  background-image: linear-gradient(to bottom, #b7d6ea, #217cc1);
+}
+.psychic-bg {
+  background-image: linear-gradient(to bottom, #e40573, #7a0239);
+}
+.ghost-bg {
+  background-image: linear-gradient(to bottom, #342f5a, #090708);
+}
+.bug-bg {
+  background-image: linear-gradient(to bottom, #d0ed90, #42a047);
+}
+.rock-bg {
+  background-image: linear-gradient(to bottom, #825230, #5f3219);
+}
+.dragon-bg {
+  background-image: linear-gradient(to bottom, #f2972b, #7e30d3);
+}
+.normal-bg {
+  background-image: linear-gradient(to bottom, #cbccd1, #5b6466);
+}
+.fairy-bg {
+  background-image: linear-gradient(to bottom, #e3b4c8, #e59799);
+}
+.dark-bg {
+  background-image: linear-gradient(to bottom, #9499aa, #0e0e0e);
+}
+.steel-bg {
+  background-image: linear-gradient(to bottom, #ced8da, #617b8f);
+}
+.abilities-bg {
+  background-image: linear-gradient(to right, #fbf5ef, #e8d5cd);
+}
 .hp {
   color: #fff;
   background-color: #29b22d;
