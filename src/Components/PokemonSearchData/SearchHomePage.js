@@ -41,7 +41,7 @@ const SearchHomePage = () => {
             setLoading(false);
           }
         } catch (error) {
-          console.log("Error");
+          // console.log("Error");
           setLoading(true);
           setPokemon("");
           setError(true);
@@ -56,6 +56,7 @@ const SearchHomePage = () => {
         noInputError={noInput}
         inputError={error}
         getPokemon={getSinglePokemon}
+        searchBarLoading={loading}
       />
       {error && (
         <ErrorInput

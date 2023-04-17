@@ -23,7 +23,7 @@ const PokeList = (props) => {
                   </span>
                   <img
                     className="mx-auto p-3 max-h-32 md:max-h-52 max-w-full group-hover:-translate-y-6 group-hover:scale-125 
-                    group-hover:md:scale-150 group-hover:z-10 group-hover:delay-150 duration-300 pointer-events-none"
+                    group-hover:md:scale-150 group-hover:z-10 group-hover:delay-150 duration-300 lg:pointer-events-none"
                     src={item.sprites.other["official-artwork"].front_default}
                     alt=""
                   />

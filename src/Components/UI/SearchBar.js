@@ -7,7 +7,7 @@ const SearchBar = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
   };
-  // "py-8"
+
   return (
     <>
       <form
@@ -37,7 +37,11 @@ const SearchBar = (props) => {
               onChange={(e) => setSearch(e.target.value.toLowerCase())}
               placeholder="Write it here"
             />
-            <Button onClick={(e) => props.getPokemon(search)}>Search</Button>
+            {props.searchBarLoading ? (
+              <Button>Searching...</Button>
+            ) : (
+              <Button onClick={(e) => props.getPokemon(search)}>Search</Button>
+            )}
           </div>
           {props.noInputError || props.inputError ? (
             <div className="border border-black/50 rounded p-2 mt-2 bg-gray-100/40 md:mx-10 lg:mx-32">
