@@ -8,7 +8,7 @@ const LoadingSpinner = () => {
       <div className="h-96 bg-gradient-to-b from-white/50 to-gray-300 grid">
         <div className="place-self-center">
           <img
-            className="animate-spin h-12 md:h-8 mx-auto"
+            className="animate-spin h-12 md:h-8 mx-auto pointer-events-none"
             src={Pokeball}
             alt="Loading..."
           />

@@ -48,7 +48,7 @@ const App = () => {
   const getPokemon = (res) => {
     res.map(async (item) => {
       const result = await axios.get(item.url);
-      console.log(result.data);
+      // console.log(result.data);
       setPokedata((prevPokemon) => {
         prevPokemon = [...prevPokemon, result.data];
         prevPokemon.sort((a, b) => (a.id > b.id ? 1 : -1));

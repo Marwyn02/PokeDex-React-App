@@ -13,30 +13,27 @@ const LandingPage = (props) => {
   const openApp = () => {
     let tl = gsap.timeline({ defaults: { ease: "power1.out" } });
     tl.fromTo(
+      ".openButton",
+      {
+        opacity: 1,
+      },
+      { opacity: 0, duration: 0.1 }
+    );
+    tl.fromTo(
       ".upper-bg",
       {
         y: "0%",
-        duration: 1,
       },
-      { y: "-100%", duration: 2 }
+      { y: "-100%", delay: 1, duration: 1.5 }
+      // "+=1"
     );
     tl.fromTo(
       ".lower-bg",
       {
         y: "0%",
-        duration: 1,
       },
-      { y: "100%", duration: 2 },
+      { y: "100%", delay: 0.5, duration: 1 },
       "-=2"
-    );
-    tl.fromTo(
-      ".openButton",
-      {
-        opacity: 1,
-        duration: 1,
-      },
-      { opacity: 0, duration: 1 },
-      "-=10"
     );
 
     setTimeout(() => {
@@ -72,7 +69,7 @@ const LandingPage = (props) => {
               </div>
             )}
             {buttonOpen && (
-              <div className="openButton group absolute place-self-center border-8 border-black p-4 bg-white rounded-full duration-300">
+              <div className="openButton group absolute place-self-center border-8 border-black p-4 bg-white rounded-full duration-300 z-20">
                 <button
                   className="bg-white p-8 rounded-full duration-300 border-2 border-black group-hover:bg-red-500/40"
                   onClick={openApp}

@@ -17,12 +17,13 @@ const PokeList = (props) => {
                 data-te-toggle="modal"
                 data-te-target="#myModal"
               >
-                <div className="mx-w-sm border border-black group-hover:border-gray-100 capitalize relative pointer-events-none">
+                <div className="mx-w-sm border border-black group-hover:border-gray-100 capitalize relative">
                   <span className="font-light text-md md:text-2xl ml-2 absolute group-hover:font-bold group-hover:z-10 group-hover:text-2xl group-hover:ml-0 duration-300">
                     {item.id}
                   </span>
                   <img
-                    className="mx-auto p-3 max-h-32 md:max-h-52 max-w-full group-hover:-translate-y-6 group-hover:scale-125 group-hover:md:scale-150 group-hover:z-10 group-hover:delay-150 duration-300"
+                    className="mx-auto p-3 max-h-32 md:max-h-52 max-w-full group-hover:-translate-y-6 group-hover:scale-125 
+                    group-hover:md:scale-150 group-hover:z-10 group-hover:delay-150 duration-300 pointer-events-none"
                     src={item.sprites.other["official-artwork"].front_default}
                     alt=""
                   />
