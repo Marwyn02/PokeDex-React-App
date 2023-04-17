@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "7580f162d56dd4a6bdae",
+    "revision": "566deab53991df0637df",
     "url": "/PokeDex-React-App/static/css/main.12593a80.chunk.css"
   },
   {
-    "revision": "7580f162d56dd4a6bdae",
-    "url": "/PokeDex-React-App/static/js/main.7580f162.chunk.js"
+    "revision": "566deab53991df0637df",
+    "url": "/PokeDex-React-App/static/js/main.566deab5.chunk.js"
   },
   {
     "revision": "c8c534f322e7bc85ef7d",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/PokeDex-React-App/static/media/UnderConstructionIcon.4e6e2803.png"
   },
   {
-    "revision": "b89fa605bf67183ce93bd76a27b6d0b0",
+    "revision": "965f97e4b00891e9264358dcc45c3616",
     "url": "/PokeDex-React-App/index.html"
   }
 ];
