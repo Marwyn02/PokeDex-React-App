@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-
-// const [OpenModal, setOpenModal] = useState(true)
+import React from "react";
 
 const PokeList = (props) => {
   return (

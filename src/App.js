@@ -6,7 +6,7 @@ import SearchHomePage from "./Components/PokemonSearchData/SearchHomePage";
 import MapHomePage from "./Components/PokemonMapSearch/MapHomePage";
 import NavbarDesktop from "./Components/Nav/NavbarDesktop";
 import Navbar from "./Components/Nav/Navbar";
-// import LandingPage from "./Components/LandingPage/LandingPage";
+import LandingPage from "./Components/LandingPage/LandingPage";
 import Footer from "./Components/Footer/Footer";
 import LoadingSpinner from "./Components/UI/LoadingSpinner";
 import axios from "axios";
@@ -25,9 +25,9 @@ const App = () => {
   const [searchPanel, setSearchPanel] = useState(false);
   const [mapSearch, setMapSearch] = useState(false);
   const [error, setError] = useState(false);
-  const [countingLoading, setCountingLoading] = useState(true);
-  // ^^ this must be false ^^
   const [onModal, setOnModal] = useState(false);
+  const [countingLoading, setCountingLoading] = useState(false);
+  // ^^ this must be false ^^
 
   useEffect(() => {
     const pokemonFun = async () => {
@@ -116,10 +116,10 @@ const App = () => {
 
   return (
     <React.Fragment>
-      {/* <LandingPage
+      <LandingPage
         countingLoad={countingLoadingHandler}
         percLoading={isLoading}
-      /> */}
+      />
 
       {countingLoading && (
         <>

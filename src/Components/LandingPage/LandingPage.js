@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { gsap } from "gsap/all";
 import CountUp from "react-countup";
-import "./landing.css";
 
 const LandingPage = (props) => {
   const [counting, setCounting] = useState(false);
@@ -16,8 +15,9 @@ const LandingPage = (props) => {
       ".openButton",
       {
         opacity: 1,
+        scale: 1,
       },
-      { opacity: 0, duration: 0.1 }
+      { scale: 0.1, opacity: 0, duration: 0.1 }
     );
     tl.fromTo(
       ".upper-bg",
@@ -25,7 +25,6 @@ const LandingPage = (props) => {
         y: "0%",
       },
       { y: "-100%", delay: 1, duration: 1.5 }
-      // "+=1"
     );
     tl.fromTo(
       ".lower-bg",
@@ -39,7 +38,6 @@ const LandingPage = (props) => {
     setTimeout(() => {
       setCounting(true);
       props.countingLoad();
-      // console.log("Yes");
     }, 2000);
   };
   return (
@@ -61,7 +59,7 @@ const LandingPage = (props) => {
                     start={0}
                     end={100}
                     delay={0.7}
-                    duration={10}
+                    duration={6}
                     onEnd={onEnd}
                   />
                   %

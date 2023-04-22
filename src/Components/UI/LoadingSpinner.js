@@ -1,6 +1,5 @@
 import React from "react";
 import Pokeball from "./UI-Images/Pokeball.png";
-import "./LoadingSpinner.css";
 
 const LoadingSpinner = () => {
   return (
