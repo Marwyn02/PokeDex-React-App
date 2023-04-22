@@ -6,7 +6,7 @@ import SearchHomePage from "./Components/PokemonSearchData/SearchHomePage";
 import MapHomePage from "./Components/PokemonMapSearch/MapHomePage";
 import NavbarDesktop from "./Components/Nav/NavbarDesktop";
 import Navbar from "./Components/Nav/Navbar";
-import LandingPage from "./Components/LandingPage/LandingPage";
+// import LandingPage from "./Components/LandingPage/LandingPage";
 import Footer from "./Components/Footer/Footer";
 import LoadingSpinner from "./Components/UI/LoadingSpinner";
 import axios from "axios";
@@ -25,8 +25,9 @@ const App = () => {
   const [searchPanel, setSearchPanel] = useState(false);
   const [mapSearch, setMapSearch] = useState(false);
   const [error, setError] = useState(false);
-  const [countingLoading, setCountingLoading] = useState(false);
+  const [countingLoading, setCountingLoading] = useState(true);
   // ^^ this must be false ^^
+  const [onModal, setOnModal] = useState(false);
 
   useEffect(() => {
     const pokemonFun = async () => {
@@ -57,6 +58,14 @@ const App = () => {
     });
   };
 
+  const modalEnabler = () => {
+    setOnModal(true);
+    console.log("Modal enabler is in ", onModal);
+  };
+  const modalDisabler = () => {
+    setOnModal(false);
+    console.log("Modal disabler is in ", onModal);
+  };
   const countingLoadingHandler = () => {
     setCountingLoading(true);
   };
@@ -65,8 +74,18 @@ const App = () => {
   if (Pokedata.length > 0) {
     PokemonContent = (
       <div>
-        <PokeList data={Pokedata} info={(pokemon) => setPokedex(pokemon)} />
-        {Pokedex && <PokeModal info={Pokedex} />}
+        <PokeList
+          data={Pokedata}
+          info={(pokemon) => setPokedex(pokemon)}
+          condi={modalEnabler}
+        />
+        {Pokedex && (
+          <PokeModal
+            info={Pokedex}
+            enabler={onModal}
+            disabler={modalDisabler}
+          />
+        )}
       </div>
     );
   }
@@ -97,10 +116,10 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <LandingPage
+      {/* <LandingPage
         countingLoad={countingLoadingHandler}
         percLoading={isLoading}
-      />
+      /> */}
 
       {countingLoading && (
         <>

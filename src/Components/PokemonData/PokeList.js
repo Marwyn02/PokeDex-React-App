@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+
+// const [OpenModal, setOpenModal] = useState(true)
 
 const PokeList = (props) => {
   return (
@@ -13,7 +15,11 @@ const PokeList = (props) => {
               <div
                 key={item.id}
                 className="group duration-300 ease-in"
-                onClick={() => props.info(item)}
+                onClick={() => {
+                  props.info(item);
+                  props.condi(true);
+                  console.log("List is in true");
+                }}
                 data-te-toggle="modal"
                 data-te-target="#myModal"
               >
@@ -23,7 +29,7 @@ const PokeList = (props) => {
                   </span>
                   <img
                     className="mx-auto p-3 max-h-32 md:max-h-52 max-w-full group-hover:-translate-y-6 group-hover:scale-125 
-                    group-hover:md:scale-150 group-hover:z-10 group-hover:delay-150 duration-300 lg:pointer-events-none"
+                    group-hover:md:scale-150 group-hover:z-10 group-hover:delay-150 duration-300"
                     src={item.sprites.other["official-artwork"].front_default}
                     alt=""
                   />
