@@ -84,7 +84,11 @@ const SearchPokemonData = (props) => {
               </div>
               {/* {props.poke.shape && (
                 <div className="text-lg text-black">
-                  {props.poke.shape.name}
+                  {
+                    props.poke.flavor_text_entries[
+                      props.poke.flavor_text_entries.length - 1
+                    ].flavor_text
+                  }
                 </div>
               )} */}
             </div>

@@ -52,7 +52,8 @@ const SearchBar = (props) => {
                 You may use (
                 <span className="inline font-bold">pokemon-name</span>)-'
                 <span className="inline font-bold">mega</span>', '
-                <span className="inline font-bold">alola</span>' or their
+                <span className="inline font-bold">alola</span>', '
+                <span className="inline font-bold">galar</span>' or their
                 variants.
               </span>
             </div>

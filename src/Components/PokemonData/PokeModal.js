@@ -1,12 +1,28 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import Pokeball from "./Data-UI/Pokeball-bg-icon.png";
 import "tw-elements";
 import { Dialog, Transition } from "@headlessui/react";
+import ModalTab from "./Data-UI/ModalTab";
+import { GetPokemonSpecies } from "./Data-UI/GetPokemonSpecies";
 
 const PokeModal = (props) => {
+  const [Pokemon, setPokemon] = useState("");
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
+
+  useEffect(() => {
+    const getPokemonSpeciesHandler = async (query) => {
+      try {
+        const speciesResponse = await GetPokemonSpecies(query);
+        const result = await speciesResponse.json();
+        setPokemon(result);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getPokemonSpeciesHandler(props.info.name);
+  }, [props.info.name]);
 
   return (
     <>
@@ -18,7 +34,6 @@ const PokeModal = (props) => {
             <>
               <Transition.Root
                 show={open}
-                as={Fragment}
                 onClose={() => {
                   setOpen(true);
                   props.disabler(false);
@@ -30,6 +45,7 @@ const PokeModal = (props) => {
                 <Dialog
                   as="div"
                   className="relative z-10"
+                  key={props.info.id}
                   initialFocus={cancelButtonRef}
                   onClose={() => {
                     props.disabler(false);
@@ -46,7 +62,7 @@ const PokeModal = (props) => {
                       props.disabler(false);
                     }}
                     as={Fragment}
-                    enter="ease-out duration-300"
+                    enter="ease-out duration-500"
                     enterFrom="opacity-0"
                     enterTo="opacity-100"
                     leave="ease-in duration-200"
@@ -55,12 +71,11 @@ const PokeModal = (props) => {
                   >
                     <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
                   </Transition.Child>
-
                   <div className="fixed inset-0 z-10 overflow-y-auto">
                     <div className="flex relative w-full h-full max-w-lg md:h-auto transition-all duration-500 ease-in-out mx-auto min-[576px]:max-w-[500px]-h-full items-center justify-center p-4 text-center sm:p-0">
                       <Transition.Child
                         as={Fragment}
-                        enter="ease-out duration-300"
+                        enter="ease-out duration-500"
                         enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         enterTo="opacity-100 translate-y-0 sm:scale-100"
                         leave="ease-in duration-200"
@@ -76,7 +91,7 @@ const PokeModal = (props) => {
                                 <Dialog.Title
                                   as="h3"
                                   className="grid grid-cols-4 font-semibold leading-6 text-gray-900
-                                  flex items-center justify-center"
+                  flex items-center justify-center"
                                 >
                                   {/* POKEMON NAME */}
                                   <h6 className="text-xl sm:text-2xl text-white/90 font-medium flex justify-start items-center">
@@ -98,7 +113,7 @@ const PokeModal = (props) => {
                                     <button
                                       type="button"
                                       className="box-content border-none rounded-none focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black 
-                                      hover:no-underline"
+                      hover:no-underline"
                                       onClose={() => {
                                         setOpen(true);
                                       }}
@@ -150,41 +165,7 @@ const PokeModal = (props) => {
                                   );
                                 })}
                               </div>
-                              <div className="bg-gray-100/10 rounded-lg px-2 py-3">
-                                <h5 className="text-gray-100/80 text-sm mb-1">
-                                  Stats
-                                </h5>
-                                <div className="grid grid-cols-2 gap-x-4 gap-y-0.5 px-1">
-                                  {props.info.stats.map((poke) => {
-                                    return (
-                                      <div className="grid grid-cols-3">
-                                        <p className="col-span-2 flex items-center capitalize text-gray-100/70 text-xs sm:text-sm">
-                                          {poke.stat.name}:{" "}
-                                        </p>
-                                        <span
-                                          className={`${poke.stat.name} col-span-1 flex items-center justify-center rounded text-xs sm:text-base text-center`}
-                                        >
-                                          {poke.base_stat}
-                                        </span>
-                                      </div>
-                                    );
-                                  })}
-                                </div>
-                              </div>
-                              <div className="bg-gray-100/10 p-2 rounded-lg mt-2">
-                                <h5 className="-mb-1.5 py-1 text-sm font-medium text-gray-100/80 capitalize">
-                                  Abilities
-                                </h5>
-                                <div className="grid grid-cols-2 gap-1.5 md:gap-2 px-10 py-2">
-                                  {props.info.abilities.map((poke) => {
-                                    return (
-                                      <p className="abilities-bg flex justify-center items-center capitalize text-xs opacity-90 sm:text-sm text-black/70 rounded">
-                                        {poke.ability.name}
-                                      </p>
-                                    );
-                                  })}
-                                </div>
-                              </div>
+                              <ModalTab stats={props.info} species={Pokemon} />
                             </div>
                           </div>
                         </Dialog.Panel>

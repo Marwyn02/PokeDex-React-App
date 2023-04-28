@@ -60,11 +60,9 @@ const App = () => {
 
   const modalEnabler = () => {
     setOnModal(true);
-    console.log("Modal enabler is in ", onModal);
   };
   const modalDisabler = () => {
     setOnModal(false);
-    console.log("Modal disabler is in ", onModal);
   };
   const countingLoadingHandler = () => {
     setCountingLoading(true);

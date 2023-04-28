@@ -16,7 +16,6 @@ const PokeList = (props) => {
                 onClick={() => {
                   props.info(item);
                   props.condi(true);
-                  console.log("List is in true");
                 }}
                 data-te-toggle="modal"
                 data-te-target="#myModal"
