@@ -119,6 +119,8 @@ const App = () => {
         percLoading={isLoading}
       />
 
+      {/* Comment this when developing ^^ */}
+
       {countingLoading && (
         <>
           <RGBBorder />
