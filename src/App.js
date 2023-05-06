@@ -6,10 +6,11 @@ import SearchHomePage from "./Components/PokemonSearchData/SearchHomePage";
 import MapHomePage from "./Components/PokemonMapSearch/MapHomePage";
 import NavbarDesktop from "./Components/Nav/NavbarDesktop";
 import Navbar from "./Components/Nav/Navbar";
-import LandingPage from "./Components/LandingPage/LandingPage";
+// import LandingPage from "./Components/LandingPage/LandingPage";
 import Footer from "./Components/Footer/Footer";
 import LoadingSpinner from "./Components/UI/LoadingSpinner";
 import axios from "axios";
+// import { v4 as uuidv4 } from "uuid";
 import ErrorInput from "./Components/UI/ErrorInput";
 import RGBBorder from "./Components/UI/RGBBorder";
 import "tw-elements";
@@ -26,7 +27,8 @@ const App = () => {
   const [mapSearch, setMapSearch] = useState(false);
   const [error, setError] = useState(false);
   const [onModal, setOnModal] = useState(false);
-  const [countingLoading, setCountingLoading] = useState(false);
+  // const [uid, setUid] = useState([]);
+  const [countingLoading, setCountingLoading] = useState(true);
   // ^^ this must be false ^^
 
   useEffect(() => {
@@ -73,9 +75,10 @@ const App = () => {
     PokemonContent = (
       <div>
         <PokeList
+          // forKey={uid}
           data={Pokedata}
-          info={(pokemon) => setPokedex(pokemon)}
-          condi={modalEnabler}
+          onModalEnabler={modalEnabler}
+          processedTransferData={(pokemon) => setPokedex(pokemon)}
         />
         {Pokedex && (
           <PokeModal
@@ -114,10 +117,10 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <LandingPage
+      {/* <LandingPage
         countingLoad={countingLoadingHandler}
         percLoading={isLoading}
-      />
+      /> */}
 
       {/* Comment this when developing ^^ */}
 
