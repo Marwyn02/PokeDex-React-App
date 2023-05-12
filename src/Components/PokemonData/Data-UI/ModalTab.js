@@ -23,15 +23,14 @@ const ModalTab = (props) => {
         >
           Abilities
         </Tab>
-        {/* <Tab
+        <Tab
           className={({ selected }) =>
-            selected
-              ? `${tabSelected}` : `${tabNotSelected}`
+            selected ? `${tabSelected}` : `${tabNotSelected}`
           }
           disabled
         >
-          Tab 3
-        </Tab> */}
+          Weakness
+        </Tab>
       </Tab.List>
       <Tab.Panels
         key={props.stats.id}
