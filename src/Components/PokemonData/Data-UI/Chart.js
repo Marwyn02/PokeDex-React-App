@@ -39,6 +39,7 @@ const RadarChart = (props) => {
           responsive: true,
           aspectRatio: 1,
           devicePixelRatio: window.devicePixelRatio || 1,
+          maintainAspectRatio: false,
         },
       },
     ],
