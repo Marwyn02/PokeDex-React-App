@@ -36,8 +36,8 @@ const RadarChart = (props) => {
         borderWidth: 1,
         pointStyle: false,
         options: {
-          responsive: true,
-          aspectRatio: 1,
+          // responsive: true,
+          // aspectRatio: 1,
           // devicePixelRatio: window.devicePixelRatio || 1,
           maintainAspectRatio: false,
         },
@@ -109,7 +109,7 @@ const RadarChart = (props) => {
   }, [props.pokeData.stats]);
 
   return (
-    <div className="mx-auto sm:pt-10 sm:px-8 md:pt-20 md:px-16 md:pb-0 md:-mt-16">
+    <div className="mx-auto pt-6 px-10 pb-0 sm:pt-10 sm:px-8 md:pt-20 md:px-16 md:pb-0 -mt-3 md:-mt-16">
       <Radar data={data} options={options} />
     </div>
   );
