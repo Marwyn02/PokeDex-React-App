@@ -1,119 +1,68 @@
-import React, { useEffect, useState } from "react";
+import { React } from "react";
 import {
-  Chart as ChartJS,
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend,
-} from "chart.js";
-import { Radar } from "react-chartjs-2";
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  ResponsiveContainer,
+} from "recharts";
 
-ChartJS.register(
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend
-);
-
-const RadarChart = (props) => {
-  const [baseStat, setBaseStat] = useState([]);
-  ChartJS.defaults.color = "#333";
-
-  const data = {
-    labels: ["Health", "Attack", "Defense", "Spe-Att", "Spe-Def", "Speed"],
-    datasets: [
-      {
-        label: "Stats",
-        data: baseStat,
-        color: "#FFFFFF80",
-        backgroundColor: "#DBDFEA99",
-        borderColor: "#555F5Ecc",
-        pointBorderWidth: 0.3,
-        borderWidth: 1,
-        pointStyle: false,
-        options: {
-          responsive: true,
-          // aspectRatio: 1,
-          // devicePixelRatio: window.devicePixelRatio || 1,
-          devicePixelRatio: window.devicePixelRatio,
-          maintainAspectRatio: false,
-        },
-      },
-    ],
-  };
-  const options = {
-    plugins: {
-      colors: {
-        forceOverride: true,
-      },
-      legend: {
-        display: false,
-      },
+const Chart = (props) => {
+  const data = [
+    {
+      subject: `Health (${props.pokeData.stats[0].base_stat})`,
+      A: props.pokeData.stats[0].base_stat,
     },
-
-    scales: {
-      r: {
-        animate: true,
-        beginAtZero: true,
-        suggestedMin: 20,
-        suggestedMax: 100,
-        angleLines: {
-          color: "#FFFFFF66",
-        },
-        ticks: {
-          backdropColor: "#ffffff00",
-          color: "white",
-          stepSize: 25,
-          font: {
-            size: 8,
-          },
-          display: true,
-        },
-        pointLabels: {
-          backdropPadding: {
-            x: 1.5,
-            y: 1.5,
-          },
-          borderRadius: 4,
-          backdropColor: [
-            "#29b22d",
-            "#f4423a",
-            "#2297f4",
-            "#3e3099",
-            "#2072aa",
-            "#afe6f6",
-          ],
-          color: ["#FFF", "#EEE", "#EEE", "#EEE", "#EEE", "#444"],
-          font: {
-            size: 11,
-            weight: "normal",
-          },
-        },
-
-        grid: {
-          color: "#FFFFFF33",
-        },
-      },
+    {
+      subject: `Attack (${props.pokeData.stats[1].base_stat})`,
+      A: props.pokeData.stats[1].base_stat,
     },
-  };
-
-  useEffect(() => {
-    const BaseStats = props.pokeData.stats.map((Data) => {
-      return Data.base_stat;
-    });
-
-    setBaseStat(BaseStats);
-  }, [props.pokeData.stats]);
+    {
+      subject: `Defense (${props.pokeData.stats[2].base_stat})`,
+      A: props.pokeData.stats[2].base_stat,
+    },
+    {
+      subject: `Spe-Att (${props.pokeData.stats[3].base_stat})`,
+      A: props.pokeData.stats[3].base_stat,
+    },
+    {
+      subject: `(${props.pokeData.stats[4].base_stat}) Spe-Def`,
+      A: props.pokeData.stats[4].base_stat,
+    },
+    {
+      subject: `(${props.pokeData.stats[5].base_stat}) Speed`,
+      A: props.pokeData.stats[5].base_stat,
+    },
+  ];
 
   return (
-    <div className="mx-auto pt-6 px-10 pb-0 sm:pt-10 sm:px-8 md:pt-20 md:px-16 md:pb-0 -mt-3 md:-mt-16">
-      <Radar data={data} options={options} />
+    <div style={{ width: "100%", height: 300 }}>
+      <ResponsiveContainer>
+        <RadarChart outerRadius={88} data={data}>
+          <PolarGrid />
+          <PolarAngleAxis
+            dataKey="subject"
+            tick={{
+              fill: "white",
+              fontSize: 11,
+              fontWeight: "lighter",
+              enableBackground: "red",
+            }}
+            axisLine="true"
+          />
+          <PolarRadiusAxis angle={60} domain={[0, 100]} />
+          <Radar
+            name="Pokemon Stats"
+            dataKey="A"
+            stroke="#555F5Ecc"
+            fill="#DBDFEA99"
+            fillOpacity={0.5}
+          />
+        </RadarChart>
+      </ResponsiveContainer>
     </div>
   );
 };
 
-export default RadarChart;
+export default Chart;

@@ -37,7 +37,9 @@ const ModalTab = (props) => {
         className="rounded mt-3 text-sm duration-300"
       >
         <Tab.Panel>
-          <RadarChart pokeData={props.stats} />
+          <div className="-mt-4 -mb-8">
+            <RadarChart pokeData={props.stats} />
+          </div>
         </Tab.Panel>
         <Tab.Panel>
           {/* <TabPanel /> */}
