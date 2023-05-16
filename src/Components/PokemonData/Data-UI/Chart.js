@@ -57,7 +57,7 @@ const Chart = (props) => {
             dataKey="A"
             stroke="#555F5Ecc"
             fill="#DBDFEA99"
-            fillOpacity={0.5}
+            fillOpacity={1}
           />
         </RadarChart>
       </ResponsiveContainer>
