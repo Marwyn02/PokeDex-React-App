@@ -6,6 +6,22 @@ const ModalTab = (props) => {
   const tabSelected = `${props.stats.types[0].type.name} opacity-90 py-0.5 sm:py-1 text-white/90 ring-1 ring-white/50 rounded`;
   const tabNotSelected = `py-0.5 sm:py-1 text-white/70 hover:ring-1 hover:ring-gray-100 rounded hover:text-white duration-300`;
 
+  let englishFlavorText = "";
+  if (props.species) {
+    for (let i = props.species.flavor_text_entries.length - 1; i >= 0; i--) {
+      const flavorTextEntry = props.species.flavor_text_entries[i];
+      if (flavorTextEntry.language.name === "en") {
+        englishFlavorText = flavorTextEntry.flavor_text;
+        break;
+      }
+    }
+    englishFlavorText = (
+      <p className="font-thin text-white/90 tracking-tight text-sm sm:text-base">
+        {englishFlavorText}
+      </p>
+    );
+  }
+
   return (
     <Tab.Group>
       <Tab.List className="grid grid-cols-3 text-center gap-x-1.5 text-xs px-3 sm:px-5 pt-1 duration-300">
@@ -27,7 +43,6 @@ const ModalTab = (props) => {
           className={({ selected }) =>
             selected ? `${tabSelected}` : `${tabNotSelected}`
           }
-          disabled
         >
           Weakness
         </Tab>
@@ -43,8 +58,10 @@ const ModalTab = (props) => {
         </Tab.Panel>
         <Tab.Panel>
           {/* <TabPanel /> */}
-          <div className="bg-gray-100/10 p-2 rounded-lg mt-2 h-28 sm:h-32">
-            <h5 className="-mb-1.5 py-1 text-sm font-medium text-gray-100/80 capitalize">
+          <div className="bg-gray-100/10 p-2 pb-4 sm:pb-5 rounded-lg mt-2">
+            <div className="pr-6 py-2 pl-7 sm:py-4">{englishFlavorText}</div>
+            <hr className="border-white/20 mb-2 mt-1 mx-8 sm:mb-4" />
+            <h5 className="-mb-1.5 py-1 pl-4 text-sm font-medium text-gray-100/80 capitalize">
               Abilities
             </h5>
             <div className="grid grid-cols-2 gap-1.5 md:gap-2 px-10 py-2">
@@ -58,9 +75,7 @@ const ModalTab = (props) => {
             </div>
           </div>
         </Tab.Panel>
-        <Tab.Panel>
-          <div className="h-24 sm:h-32">{props.species.name}</div>
-        </Tab.Panel>
+        <Tab.Panel></Tab.Panel>
       </Tab.Panels>
     </Tab.Group>
   );

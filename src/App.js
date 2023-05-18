@@ -6,11 +6,10 @@ import SearchHomePage from "./Components/PokemonSearchData/SearchHomePage";
 import MapHomePage from "./Components/PokemonMapSearch/MapHomePage";
 import NavbarDesktop from "./Components/Nav/NavbarDesktop";
 import Navbar from "./Components/Nav/Navbar";
-import LandingPage from "./Components/LandingPage/LandingPage";
+// import LandingPage from "./Components/LandingPage/LandingPage";
 import Footer from "./Components/Footer/Footer";
 import LoadingSpinner from "./Components/UI/LoadingSpinner";
 import axios from "axios";
-// import { v4 as uuidv4 } from "uuid";
 import ErrorInput from "./Components/UI/ErrorInput";
 import RGBBorder from "./Components/UI/RGBBorder";
 import "tw-elements";
@@ -27,7 +26,7 @@ const App = () => {
   const [mapSearch, setMapSearch] = useState(false);
   const [error, setError] = useState(false);
   const [onModal, setOnModal] = useState(false);
-  const [countingLoading, setCountingLoading] = useState(false);
+  const [countingLoading, setCountingLoading] = useState(true);
   // ^^ this must be false ^^
 
   useEffect(() => {
@@ -50,7 +49,7 @@ const App = () => {
   const getPokemon = (res) => {
     res.map(async (item) => {
       const result = await axios.get(item.url);
-      // console.log(result.data);
+      console.log(result.data);
       setPokedata((prevPokemon) => {
         prevPokemon = [...prevPokemon, result.data];
         prevPokemon.sort((a, b) => (a.id > b.id ? 1 : -1));
@@ -115,10 +114,10 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <LandingPage
+      {/* <LandingPage
         countingLoad={countingLoadingHandler}
         percLoading={isLoading}
-      />
+      /> */}
 
       {/* Comment this when developing ^^ */}
 

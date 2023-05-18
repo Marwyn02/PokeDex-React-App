@@ -17,6 +17,7 @@ const PokeModal = (props) => {
         const speciesResponse = await GetPokemonSpecies(query);
         const result = await speciesResponse.json();
         setPokemon(result);
+        console.log(result);
       } catch (error) {
         console.log(error);
       }
@@ -178,6 +179,7 @@ const PokeModal = (props) => {
                                 alt=""
                               />
                             </div>
+
                             {/* Pokemon Stats */}
                             <div key={props.info.id} className="relative z-40">
                               <ModalTab stats={props.info} species={Pokemon} />
