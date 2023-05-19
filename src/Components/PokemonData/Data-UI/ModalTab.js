@@ -30,7 +30,7 @@ const ModalTab = (props) => {
             selected ? `${tabSelected}` : `${tabNotSelected}`
           }
         >
-          Stats
+          Base Stats
         </Tab>
         <Tab
           className={({ selected }) =>
@@ -57,9 +57,20 @@ const ModalTab = (props) => {
           </div>
         </Tab.Panel>
         <Tab.Panel>
-          {/* <TabPanel /> */}
           <div className="bg-gray-100/10 p-2 pb-4 sm:pb-5 rounded-lg mt-2">
-            <div className="pr-6 py-2 pl-7 sm:py-4">{englishFlavorText}</div>
+            {props.species && (
+              <>
+                {props.species.flavor_text_entries.length !== 0 ? (
+                  <div className="pr-6 py-2 pl-7 sm:py-4">
+                    {englishFlavorText}
+                  </div>
+                ) : (
+                  <div className="pr-6 py-2 pl-7 sm:py-4 font-thin text-white/90 tracking-tight text-sm sm:text-base">
+                    This pokemon has no description yet...
+                  </div>
+                )}
+              </>
+            )}
             <hr className="border-white/20 mb-2 mt-1 mx-8 sm:mb-4" />
             <h5 className="-mb-1.5 py-1 pl-4 text-sm font-medium text-gray-100/80 capitalize">
               Abilities

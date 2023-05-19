@@ -12,14 +12,49 @@ const PokeModal = (props) => {
   const cancelButtonRef = useRef(null);
 
   useEffect(() => {
+    const array_pokemon_name = [
+      "nidoran-f",
+      "nidoran-m",
+      "mr-mime",
+      "ho-oh",
+      "mime-jr",
+      "porygon-z",
+      "type-null",
+      "jangmo-o",
+      "hakamo-o",
+      "kommo-o",
+      "tapu-koko",
+      "tapu-lele",
+      "tapu-bulu",
+      "tapu-fini",
+      "mr-rime",
+      "ting-lu",
+      "chien-pao",
+      "wo-chien",
+      "chi-yu",
+    ];
+
     const getPokemonSpeciesHandler = async (query) => {
-      try {
-        const speciesResponse = await GetPokemonSpecies(query);
-        const result = await speciesResponse.json();
-        setPokemon(result);
-        console.log(result);
-      } catch (error) {
-        console.log(error);
+      const sliced_query = query.substring(0, query.search("-"));
+
+      if (array_pokemon_name.includes(query) || query.search("-") <= 0) {
+        try {
+          const speciesResponse = await GetPokemonSpecies(query);
+          const result = await speciesResponse.json();
+          setPokemon(result);
+          // console.log(result);
+        } catch (error) {
+          return console.log(error);
+        }
+      } else {
+        try {
+          const speciesResponse = await GetPokemonSpecies(sliced_query);
+          const result = await speciesResponse.json();
+          setPokemon(result);
+          // console.log(result);
+        } catch (error) {
+          return console.log(error);
+        }
       }
     };
     getPokemonSpeciesHandler(props.info.name);
@@ -116,8 +151,8 @@ const PokeModal = (props) => {
                                 <div className="flex justify-end">
                                   <button
                                     type="button"
-                                    className="box-content border-none rounded-full p-1 no-underline text-white/75 focus:shadow-none focus:outline-none focus:opacity-100 
-                                    hover:no-underline hover:text-white/90 hover:bg-black/30 rounded focus:no-underline focus:text-white duration-300"
+                                    className="box-content border-none rounded-lg p-1 no-underline text-white/75 focus:shadow-none focus:outline-none focus:opacity-100 
+                                    hover:no-underline hover:text-white/90 hover:bg-black/30 focus:no-underline focus:text-white duration-300"
                                     onClose={() => {
                                       setOpen(true);
                                     }}
@@ -126,12 +161,13 @@ const PokeModal = (props) => {
                                     }}
                                     ref={cancelButtonRef}
                                   >
-                                    <IoClose className="" size={24} />
+                                    <IoClose size={24} />
                                   </button>
                                 </div>
                               </Dialog.Title>
                             </div>
                           </div>
+
                           {/* POKEMON TYPE */}
                           {props.info.types.length === 2 ? (
                             <div className="grid grid-cols-6 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-1 pb-2 md:pt-1 text-sm">
