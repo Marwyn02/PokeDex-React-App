@@ -26,8 +26,7 @@ const App = () => {
   const [mapSearch, setMapSearch] = useState(false);
   const [error, setError] = useState(false);
   const [onModal, setOnModal] = useState(false);
-  const [countingLoading, setCountingLoading] = useState(false);
-  // ^^ this must be false ^^
+  const [countingLoading, setCountingLoading] = useState(false); // <-- this must be false
 
   useEffect(() => {
     const pokemonFun = async () => {

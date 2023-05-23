@@ -131,7 +131,7 @@ const PokeModal = (props) => {
                                 <div className="flex justify-start items-center">
                                   <p
                                     className="text-base sm:text-xl text-white/90
-                                    font-medium border border-white/50 hover:border-white px-3 py-0.5 rounded-lg duration-300 cursor-default"
+                                    font-medium bg-black/30 px-2 md:px-4 py-0.5 rounded-lg duration-300 cursor-default"
                                   >
                                     <span className="text-xs sm:text-md font-normal mr-0.5 text-gray-100/70">
                                       no
