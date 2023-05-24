@@ -142,8 +142,8 @@ const PokeModal = (props) => {
                                 <h1
                                   className={
                                     props.info.name.length < 12
-                                      ? "rounded-full text-2xl col-span-2 md:text-3xl font-bold text-white/90 subpixel-antialiased text-center capitalize sm:tracking-wide"
-                                      : "rounded-full text-lg col-span-2 md:text-xl font-bold text-white/90 subpixel-antialiased text-center capitalize sm:tracking-wide"
+                                      ? "rounded-full text-2xl col-span-2 md:text-3xl font-bold text-white/90 subpixel-antialiased text-center capitalize sm:tracking-wide pointer-events-none"
+                                      : "rounded-full text-lg col-span-2 md:text-xl font-bold text-white/90 subpixel-antialiased text-center capitalize sm:tracking-wide pointer-events-none"
                                   }
                                 >
                                   {props.info.name}
@@ -170,7 +170,7 @@ const PokeModal = (props) => {
 
                           {/* POKEMON TYPE */}
                           {props.info.types.length === 2 ? (
-                            <div className="grid grid-cols-6 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-1 pb-2 md:pt-1 text-sm">
+                            <div className="grid grid-cols-6 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-1 pb-2 md:pt-1 text-sm pointer-events-none">
                               {props.info.types.map((poke) => {
                                 return (
                                   <p
@@ -184,7 +184,7 @@ const PokeModal = (props) => {
                               })}
                             </div>
                           ) : (
-                            <div className="grid grid-cols-5 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-1 pb-2 md:pt-1 text-sm">
+                            <div className="grid grid-cols-5 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-1 pb-2 md:pt-1 text-sm pointer-events-none">
                               {props.info.types.map((poke) => {
                                 return (
                                   <p
@@ -210,7 +210,7 @@ const PokeModal = (props) => {
                             </div>
                             <div className="absolute top-16 -right-24 md:top-28 md:-right-20 z-0">
                               <img
-                                className="opacity-5 w-80 -rotate-12"
+                                className="opacity-5 w-80 -rotate-12 pointer-events-none"
                                 src={Pokeball}
                                 alt=""
                               />
