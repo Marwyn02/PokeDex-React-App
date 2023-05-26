@@ -56,6 +56,7 @@ const ModalTab = (props) => {
             <RadarChart pokeData={props.stats} />
           </div>
         </Tab.Panel>
+
         <Tab.Panel>
           <div className="bg-gray-100/10 p-2 pb-4 sm:pb-5 rounded-lg mt-2">
             {props.species && (
@@ -86,6 +87,7 @@ const ModalTab = (props) => {
             </div>
           </div>
         </Tab.Panel>
+
         <Tab.Panel></Tab.Panel>
       </Tab.Panels>
     </Tab.Group>

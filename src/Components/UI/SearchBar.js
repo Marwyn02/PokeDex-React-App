@@ -15,20 +15,12 @@ const SearchBar = (props) => {
         className={
           props.inputError || props.noInputError
             ? "pt-8 -mb-8"
-            : "py-10 md:pt-10 md:pb-20"
+            : "pt-8 pb-5 md:py-10 border-b border-black md:border-0"
         }
         onSubmit={submitHandler}
       >
-        {/* grid grid-cols-1 px-6 md:px-20 lg:px-40 */}
-        <div className="mx-auto lg:mx-96">
-          <div className="flex items-center mx-8 md:mx-20 lg:mx-32">
-            <label
-              htmlFor="name"
-              className="sr-only mr-1 text-sm md:mr-2 md:text-base mb-1"
-            >
-              Search for pokemon:
-            </label>
-            {/* grid grid-cols-3 gap-2 md:px-10 lg:px-32 */}
+        <div className="mx-au md:mx-20 lg:mx-40 xl:mx-96 2xl:mx-96">
+          <div className="flex items-center mx-8 md:mx-10 lg:mx-32">
             <div className="relative w-full">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <IoSearchOutline />
@@ -37,7 +29,7 @@ const SearchBar = (props) => {
                 className={
                   props.inputError || props.noInputError
                     ? "border py-1 border-rose-500 bg-transparent focus:ring-0 block w-full pl-10"
-                    : "border py-1 focus:ring-0 pl-10 block w-full"
+                    : "border py-1 focus:ring-0 block w-full pl-10"
                 }
                 type="text"
                 id="name"
