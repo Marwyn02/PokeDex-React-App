@@ -7,18 +7,17 @@ const SearchPokemonData = (props) => {
       {!props.poke ? (
         ""
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-5 lg:grid-cols-4 gap-x-2 pt-8">
-          <div
-            className="z-10 text-9xl font-bold origin-top-left rotate-90 absolute top-1/4 left-24 vertical-rl uppercase bg-gradient-to-r from-purple-500 to-pink-500 
-            text-transparent bg-clip-text opacity-10 tracking-wider"
-          >
-            {props.poke.name}
-          </div>
-          <div
-            key={props.poke.id}
-            className="px-5 pb-8 sm:col-start-2 sm:col-span-3 lg:col-start-2 lg:col-span-2"
-          >
-            <h1 className="capitalize text-3xl md:text-4xl lg:text-6xl font-bold sm:tracking-wide text-center pointer-events-none">
+        <div className="mx-auto pt-8 max-w-xl">
+          <div key={props.poke.id} className="px-5 pb-8 overflow-y-hidden ">
+            <div className="relative">
+              <div
+                className="text-9xl font-bold origin-top-left rotate-90 absolute top-0 left-20 vertical-lr uppercase bg-gradient-to-r from-purple-500 to-pink-500 
+            text-transparent bg-clip-text opacity-70 tracking-wider"
+              >
+                {props.poke.name}
+              </div>
+            </div>
+            <h1 className="relative capitalize text-3xl md:text-4xl lg:text-6xl font-bold sm:tracking-wide text-center pointer-events-none">
               {props.poke.name}
             </h1>
             {props.poke.types.length === 2 ? (
@@ -48,16 +47,23 @@ const SearchPokemonData = (props) => {
                 })}
               </div>
             )}
-            <div className="px-6 z-20">
-              <img
-                className="mx-auto pointer-events-none"
-                src={props.poke.sprites.other["official-artwork"].front_default}
-                alt="Pokemon_image"
-              />
-            </div>
-            <div>
-              <div className="bg-black/40 z-0 rounded-lg">
-                <RadarChart pokeData={props.poke} />
+            <div className="relative">
+              <div className="px-6">
+                <img
+                  className="mx-auto pointer-events-none z-50"
+                  src={
+                    props.poke.sprites.other["official-artwork"].front_default
+                  }
+                  alt="Pokemon_image"
+                />
+              </div>
+              <div>
+                <div className="bg-gray-900 md:rounded-lg mt-5 -mx-5 duration-300 relative">
+                  <p className="text-white/40 lowercase font-bold text-sm -mb-20 pt-8 px-10 absolute">
+                    Statistics:
+                  </p>
+                  <RadarChart pokeData={props.poke} />
+                </div>
               </div>
             </div>
           </div>
