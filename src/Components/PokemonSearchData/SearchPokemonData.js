@@ -8,18 +8,25 @@ const SearchPokemonData = (props) => {
         ""
       ) : (
         <div className="mx-auto pt-8 max-w-xl">
-          <div key={props.poke.id} className="px-5 pb-8 overflow-y-hidden ">
+          <div key={props.poke.id} className="px-5 pb-8 overflow-y-hidden">
             <div className="relative">
               <div
-                className="text-9xl font-bold origin-top-left rotate-90 absolute top-0 left-20 vertical-lr uppercase bg-gradient-to-r from-purple-500 to-pink-500 
-            text-transparent bg-clip-text opacity-70 tracking-wider"
+                className="text-9xl font-bold origin-top-left rotate-90 absolute top-0 left-[75px] vertical-lr uppercase bg-gradient-to-r from-purple-500 to-pink-500 
+            text-transparent bg-clip-text opacity-60 tracking-wider"
               >
                 {props.poke.name}
               </div>
             </div>
-            <h1 className="relative capitalize text-3xl md:text-4xl lg:text-6xl font-bold sm:tracking-wide text-center pointer-events-none">
-              {props.poke.name}
-            </h1>
+            <div className="relative mt-6 mx-auto w-fit -mb-1">
+              <div className="absolute bottom-auto left-auto -right-5 top-0 z-10 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 skew-x-0 skew-y-0 scale-x-100 scale-y-100 whitespace-nowrap rounded-md bg-black/70 px-2.5 py-1 text-center align-baseline text-xs font-bold leading-none text-white">
+                {props.poke.id}
+              </div>
+              <div className="flex items-center justify-center text-center dark:text-gray-200">
+                <h1 className="relative capitalize text-black/70 text-3xl md:text-4xl lg:text-6xl font-bold md:tracking-wide text-center pointer-events-none">
+                  {props.poke.name}
+                </h1>
+              </div>
+            </div>
             {props.poke.types.length === 2 ? (
               <div className="grid grid-cols-6 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pb-2 md:pt-1 text-sm pointer-events-none">
                 {props.poke.types.map((data) => {

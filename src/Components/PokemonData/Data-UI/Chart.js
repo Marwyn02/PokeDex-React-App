@@ -55,8 +55,8 @@ const Chart = (props) => {
           <Radar
             name="Pokemon Stats"
             dataKey="A"
-            stroke="#555F5Ecc"
-            fill="#DBDFEA99"
+            stroke="#555F5Eff"
+            fill="#DBDFEAcc"
             fillOpacity={1}
           />
         </RadarChart>

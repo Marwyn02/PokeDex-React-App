@@ -28,8 +28,8 @@ const SearchBar = (props) => {
               <input
                 className={
                   props.inputError || props.noInputError
-                    ? "border py-1 border-rose-500 bg-transparent focus:ring-0 block w-full pl-10"
-                    : "border py-1 focus:ring-0 block w-full pl-10"
+                    ? "border py-1 pt-2 border-rose-500 bg-transparent focus:ring-0 block w-full pl-10 duration-300 rounded-sm"
+                    : "border pb-1 pt-2 focus:ring-0 block w-full pl-10 duration-300 rounded-sm"
                 }
                 type="text"
                 id="name"
