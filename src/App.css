@@ -152,6 +152,7 @@
 .abilities-bg {
   background-image: linear-gradient(to right, #fbf5ef, #e8d5cd);
 }
+
 .hp {
   color: #fff;
   background-color: #29b22d;
@@ -177,4 +178,61 @@
 .speed {
   color: #444;
   background-color: #afe6f6;
+}
+
+@media only screen and (min-width: 1024px) {
+  .grass-info-bg {
+    background-image: linear-gradient(to bottom right, #57a32c, #3b3f4e);
+  }
+  .fire-info-bg {
+    background-image: linear-gradient(to bottom right, #cf4b04, #3b3f4e);
+  }
+  .water-info-bg {
+    background-image: linear-gradient(to bottom right, #8ec5e1, #3b3f4e);
+  }
+  .electric-info-bg {
+    background-image: linear-gradient(to bottom right, #fbde67, #3b3f4e);
+  }
+  .ice-info-bg {
+    background-image: linear-gradient(to bottom right, #08d4de, #3b3f4e);
+  }
+  .fighting-info-bg {
+    background-image: linear-gradient(to bottom right, #dc944f, #3b3f4e);
+  }
+  .poison-info-bg {
+    background-image: linear-gradient(to bottom right, #a22497, #3b3f4e);
+  }
+  .ground-info-bg {
+    background-image: linear-gradient(to bottom right, #d4b495, #3b3f4e);
+  }
+  .flying-info-bg {
+    background-image: linear-gradient(to bottom right, #b7d6ea, #3b3f4e);
+  }
+  .psychic-info-bg {
+    background-image: linear-gradient(to bottom right, #e40573, #3b3f4e);
+  }
+  .ghost-info-bg {
+    background-image: linear-gradient(to bottom right, #342f5a, #3b3f4e);
+  }
+  .bug-info-bg {
+    background-image: linear-gradient(to bottom right, #d0ed90, #3b3f4e);
+  }
+  .rock-info-bg {
+    background-image: linear-gradient(to bottom right, #825230, #3b3f4e);
+  }
+  .dragon-info-bg {
+    background-image: linear-gradient(to bottom right, #442fd7, #3b3f4e);
+  }
+  .normal-info-bg {
+    background-image: linear-gradient(to bottom right, #cbccd1, #3b3f4e);
+  }
+  .fairy-info-bg {
+    background-image: linear-gradient(to bottom right, #e3b4c8, #3b3f4e);
+  }
+  .dark-info-bg {
+    background-image: linear-gradient(to bottom right, #9499aa, #3b3f4e);
+  }
+  .steel-info-bg {
+    background-image: linear-gradient(to bottom right, #ced8da, #3b3f4e);
+  }
 }

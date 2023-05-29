@@ -41,7 +41,7 @@ const SearchBar = (props) => {
               <Button>Searching...</Button>
             ) : (
               <Button onClick={(e) => props.getPokemon(search)}>
-                <IoSearchOutline className="w-4 h-4 mr-1.5 ml-.5" />
+                <IoSearchOutline className="w-4 h-4 mr-1.5 ml-.5 -mt-1" />
                 Search
               </Button>
             )}
