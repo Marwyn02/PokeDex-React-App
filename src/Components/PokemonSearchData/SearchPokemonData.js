@@ -23,6 +23,7 @@ const SearchPokemonData = (props) => {
                 {props.poke.name} {/* Pokemon rotated name */}
               </div>
             </div>
+
             <div className="lg:grid lg:grid-rows-1 lg:grid-cols-6">
               {/* Name and ID for desktop */}
               <div className="lg:col-start-1 lg:order-1 text-center px-0"></div>

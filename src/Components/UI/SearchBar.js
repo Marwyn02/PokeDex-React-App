@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import SearchingReminder from "./SearchingReminder";
 import { IoSearchOutline } from "react-icons/io5";
 
 const SearchBar = (props) => {
@@ -38,7 +39,7 @@ const SearchBar = (props) => {
               />
             </div>
             {props.searchBarLoading ? (
-              <Button>Searching...</Button>
+              <Button disable={props.searchBarLoading}>Searching...</Button>
             ) : (
               <Button onClick={(e) => props.getPokemon(search)}>
                 <IoSearchOutline className="w-4 h-4 mr-1.5 ml-.5 -mt-1" />
@@ -48,20 +49,7 @@ const SearchBar = (props) => {
           </div>
           <div className="mx-8 md:mx-10 lg:mx-32 flex items-center">
             {props.noInputError || props.inputError ? (
-              <div className="border border-black/50 rounded p-2 mt-2 bg-gray-100/40 ">
-                <p className="bg-gray-200/80 rounded py-1 px-3 inline text-xs">
-                  TIP:
-                </p>
-                <span className="ml-2 text-sm">
-                  You may use (
-                  <span className="inline font-bold">pokemon-name</span>
-                  )-'
-                  <span className="inline font-bold">mega</span>', '
-                  <span className="inline font-bold">alola</span>', '
-                  <span className="inline font-bold">galar</span>' or their
-                  variants.
-                </span>
-              </div>
+              <SearchingReminder />
             ) : null}
           </div>
         </div>

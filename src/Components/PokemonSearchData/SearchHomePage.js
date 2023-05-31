@@ -58,12 +58,7 @@ const SearchHomePage = () => {
         getPokemon={getSinglePokemon}
         searchBarLoading={loading}
       />
-      {error && (
-        <ErrorInput
-          errorTitle={"Invalid input."}
-          errorMsg={"Check your spelling if it's correct."}
-        />
-      )}
+      {error && <ErrorInput errorTitle={"Pokemon not found."} />}
       {noInput && (
         <ErrorInput
           errorTitle={"Please type anything."}

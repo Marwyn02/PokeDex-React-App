@@ -6,9 +6,10 @@ const Button = (props) => {
       <button
         type={props.type || "button"}
         onClick={props.onClick}
-        className="inline-flex items-center text-center bg-gray-600 pb-2 pt-3 px-3 text-sm text-white capitalize
-                focus:border hover:bg-gray-800 focus:bg-transparent focus:outline-none font-light tracking-wide
+        className="inline-flex items-center text-center bg-gray-800 pb-2 pt-3 px-4 md:px-8 text-sm text-white capitalize
+                focus:border hover:bg-black focus:bg-transparent focus:outline-none font-light tracking-wide
                 focus:border-gray-900 focus:text-black duration-500 ml-2 rounded-md"
+        disabled={props.disable}
       >
         {props.children}
       </button>
