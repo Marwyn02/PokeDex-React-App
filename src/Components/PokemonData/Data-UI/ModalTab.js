@@ -1,6 +1,7 @@
 import React from "react";
 import RadarChart from "./Chart";
 import { Tab } from "@headlessui/react";
+import "./ModalTab.css";
 
 const ModalTab = (props) => {
   const tabSelected = `${props.stats.types[0].type.name} opacity-90 py-0.5 sm:py-1 text-white/90 ring-1 ring-white/50 rounded`;
@@ -52,13 +53,13 @@ const ModalTab = (props) => {
         className="rounded mt-3 text-sm duration-300"
       >
         <Tab.Panel>
-          <div className="-mt-4 -mb-8">
+          <div className="OpenTabAnimation -mt-4 -mb-8">
             <RadarChart pokeData={props.stats} />
           </div>
         </Tab.Panel>
 
         <Tab.Panel>
-          <div className="bg-gray-100/10 p-2 pb-4 sm:pb-5 rounded-lg mt-2">
+          <div className="OpenTabAnimation bg-gray-100/10 p-2 pb-4 sm:pb-5 rounded-lg mt-2">
             {props.species && (
               <>
                 {props.species.flavor_text_entries.length !== 0 ? (

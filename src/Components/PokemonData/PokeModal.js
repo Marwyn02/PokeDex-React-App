@@ -1,10 +1,11 @@
 import { Fragment, useEffect, useRef, useState } from "react";
-import { IoClose } from "react-icons/io5";
-import Pokeball from "./Data-UI/Pokeball-bg-icon.png";
-import "tw-elements";
-import { Dialog, Transition } from "@headlessui/react";
-import ModalTab from "./Data-UI/ModalTab";
 import { GetPokemonSpecies } from "./Data-UI/GetPokemonSpecies";
+import { IoClose } from "react-icons/io5";
+import { Dialog, Transition } from "@headlessui/react";
+import Pokeball from "./Data-UI/Pokeball-bg-icon.png";
+import ModalTab from "./Data-UI/ModalTab";
+import PokemonType from "./Data-UI/PokemonType";
+import "tw-elements";
 
 const PokeModal = (props) => {
   const [Pokemon, setPokemon] = useState("");
@@ -168,34 +169,8 @@ const PokeModal = (props) => {
                             </div>
                           </div>
 
-                          {/* POKEMON TYPE */}
-                          {props.info.types.length === 2 ? (
-                            <div className="grid grid-cols-6 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-1 pb-2 md:pt-1 text-sm pointer-events-none">
-                              {props.info.types.map((poke) => {
-                                return (
-                                  <p
-                                    className={`${poke.type.name} col-start-${
-                                      poke.slot === 1 ? "3" : "4"
-                                    } rounded-md text-center text-xs shadow-sm py-0.5 capitalize`}
-                                  >
-                                    {poke.type.name}
-                                  </p>
-                                );
-                              })}
-                            </div>
-                          ) : (
-                            <div className="grid grid-cols-5 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-1 pb-2 md:pt-1 text-sm pointer-events-none">
-                              {props.info.types.map((poke) => {
-                                return (
-                                  <p
-                                    className={`${poke.type.name} col-start-3 shadow-sm rounded-md text-center text-xs py-0.5 capitalize`}
-                                  >
-                                    {poke.type.name}
-                                  </p>
-                                );
-                              })}
-                            </div>
-                          )}
+                          <PokemonType data={props.info} />
+
                           <div className="relative flex-auto overflow-hidden px-4 pb-2 sm:px-6 sm:pb-4 sm:pt-1 md:px-5 md:pb-5 md:pt-1.5">
                             <div className="md:pb-2 px-5 md:px-8 flex justify-center items-center">
                               {/* POKEMON IMAGE */}
@@ -205,7 +180,7 @@ const PokeModal = (props) => {
                                   props.info.sprites.other["official-artwork"]
                                     .front_default
                                 }
-                                alt=""
+                                alt="Pokemon_image"
                               />
                             </div>
                             <div className="absolute top-16 -right-24 md:top-28 md:-right-20 z-0">

@@ -1,5 +1,7 @@
 import React from "react";
 import RadarChart from "../PokemonData/Data-UI/Chart";
+import PokemonType from "../PokemonData/Data-UI/PokemonType";
+import "./Content/SearchPokemon.css";
 
 const SearchPokemonData = (props) => {
   const name_design =
@@ -28,7 +30,7 @@ const SearchPokemonData = (props) => {
               {/* Name and ID for desktop */}
               <div className="lg:col-start-1 lg:order-1 text-center px-0"></div>
               <div
-                className={`lg:col-start-5 lg:col-span-2 lg:order-3 
+                className={`OpeningAnimation lg:col-start-5 lg:col-span-2 lg:order-3 
                 lg:pt-9 lg:overflow-x-hidden lg:px-4 ${props.poke.types[0].type.name}-info-bg`}
               >
                 <div className="relative mt-6 mx-auto w-fit -mb-1 lg:mb-0.5 lg:mx-auto">
@@ -41,39 +43,10 @@ const SearchPokemonData = (props) => {
                     </h1>
                   </div>
                 </div>
-                {props.poke.types.length === 2 ? (
-                  <div className="grid grid-cols-6 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pb-5 md:pt-1 text-sm pointer-events-none">
-                    {props.poke.types.map((data) => {
-                      return (
-                        <p
-                          className={`${data.type.name} col-start-${
-                            data.slot === 1 ? "3" : "4"
-                          } rounded-md text-center text-xs shadow-sm py-0.5 capitalize`}
-                        >
-                          {data.type.name}
-                        </p>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-5 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-1 pb-5 md:pt-1 text-sm pointer-events-none">
-                    {props.poke.types.map((data) => {
-                      return (
-                        <p
-                          className={`${data.type.name} col-start-3 shadow-sm rounded-md text-center text-xs py-0.5 capitalize`}
-                        >
-                          {data.type.name}
-                        </p>
-                      );
-                    })}
-                  </div>
-                )}
+                <PokemonType data={props.poke} />
                 {/* Pokemon Stats for large viewpoint */}
                 <div className="hidden lg:block -mt-7">
                   <div className="md:rounded-lg mt-5 -mx-5 lg:mx-0 duration-300 relative">
-                    <p className="text-white/40 lowercase font-bold text-sm -mb-20 pt-8 px-10 absolute">
-                      Statistics:
-                    </p>
                     <RadarChart pokeData={props.poke} />
                   </div>
                 </div>
@@ -81,7 +54,7 @@ const SearchPokemonData = (props) => {
 
               {/* Pokemon Image and chart for mobile */}
               <div className="relative lg:col-start-2 lg:col-span-3 lg:order-2">
-                <div className="px-6 lg:py-16 mt-1">
+                <div className="OpenPokemonAnimation px-6 lg:py-16 mt-1">
                   <img
                     className="mx-auto pointer-events-none z-50"
                     src={
@@ -92,9 +65,6 @@ const SearchPokemonData = (props) => {
                 </div>
                 <div className="block lg:hidden">
                   <div className="bg-gray-900 md:rounded-lg mb-8 mt-6 -mx-5 lg:mx-0 duration-300 relative">
-                    <p className="text-white/40 lowercase font-bold text-sm -mb-20 pt-8 px-10 absolute">
-                      Statistics:
-                    </p>
                     <RadarChart pokeData={props.poke} />
                   </div>
                 </div>

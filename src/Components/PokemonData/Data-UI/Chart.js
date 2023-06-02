@@ -37,31 +37,36 @@ const Chart = (props) => {
   ];
 
   return (
-    <div style={{ width: "100%", height: 300 }}>
-      <ResponsiveContainer>
-        <RadarChart outerRadius={88} data={data}>
-          <PolarGrid />
-          <PolarAngleAxis
-            dataKey="subject"
-            tick={{
-              fill: "white",
-              fontSize: 11,
-              fontWeight: "lighter",
-              enableBackground: "red",
-            }}
-            axisLine="true"
-          />
-          <PolarRadiusAxis angle={60} domain={[0, 100]} />
-          <Radar
-            name="Pokemon Stats"
-            dataKey="A"
-            stroke="#555F5Eff"
-            fill="#DBDFEAcc"
-            fillOpacity={1}
-          />
-        </RadarChart>
-      </ResponsiveContainer>
-    </div>
+    <>
+      <p className="text-white/40 lowercase font-bold text-sm -mb-20 pt-8 px-10 absolute">
+        Statistics:
+      </p>
+      <div style={{ width: "100%", height: 300 }}>
+        <ResponsiveContainer>
+          <RadarChart outerRadius={88} data={data}>
+            <PolarGrid />
+            <PolarAngleAxis
+              dataKey="subject"
+              tick={{
+                fill: "white",
+                fontSize: 11,
+                fontWeight: "lighter",
+                enableBackground: "red",
+              }}
+              axisLine="true"
+            />
+            <PolarRadiusAxis angle={60} domain={[0, 100]} />
+            <Radar
+              name="Pokemon Stats"
+              dataKey="A"
+              stroke="#555F5Eff"
+              fill="#DBDFEAcc"
+              fillOpacity={1}
+            />
+          </RadarChart>
+        </ResponsiveContainer>
+      </div>
+    </>
   );
 };
 

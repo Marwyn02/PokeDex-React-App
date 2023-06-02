@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { IoSearchOutline } from "react-icons/io5";
 import Button from "./Button";
 import SearchingReminder from "./SearchingReminder";
-import { IoSearchOutline } from "react-icons/io5";
 
 const SearchBar = (props) => {
   const [search, setSearch] = useState("");

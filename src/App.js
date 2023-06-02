@@ -4,7 +4,6 @@ import PokeModal from "./Components/PokemonData/PokeModal";
 import PokePageButton from "./Components/PokemonNavigation/PokePageButton";
 import SearchHomePage from "./Components/PokemonSearchData/SearchHomePage";
 import MapHomePage from "./Components/PokemonMapSearch/MapHomePage";
-import NavbarDesktop from "./Components/Nav/NavbarDesktop";
 import Navbar from "./Components/Nav/Navbar";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Footer from "./Components/Footer/Footer";
@@ -124,11 +123,6 @@ const App = () => {
         <>
           <RGBBorder />
           <Navbar
-            click={SearchPanelHandler}
-            homeClick={HomePageHandler}
-            mapClick={MapSearchHandler}
-          />
-          <NavbarDesktop
             searchClick={SearchPanelHandler}
             homeClick={HomePageHandler}
             mapClick={MapSearchHandler}

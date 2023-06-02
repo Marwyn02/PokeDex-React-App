@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import SearchBar from "../UI/SearchBar";
 import { GetSpeciesPokemon } from "./Content/GetSpeciesPokemon";
 import { GetPokemon } from "./Content/GetPokemon";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import ErrorInput from "../UI/ErrorInput";
 import SearchPokemonData from "./SearchPokemonData";
+import SearchBar from "../UI/SearchBar";
 
 const SearchHomePage = () => {
   const [pokemon, setPokemon] = useState("");

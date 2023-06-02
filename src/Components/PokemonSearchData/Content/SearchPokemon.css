@@ -1,0 +1,29 @@
+@keyframes OpeningAnimationFrames {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .OpeningAnimation {
+    animation: OpeningAnimationFrames 0.35s ease-in forwards;
+  }
+}
+
+@keyframes OpenPokemonAnimationFrames {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.OpenPokemonAnimation {
+  animation: OpenPokemonAnimationFrames 0.75s ease-in forwards;
+}
