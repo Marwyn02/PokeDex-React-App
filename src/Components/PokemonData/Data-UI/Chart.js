@@ -38,12 +38,12 @@ const Chart = (props) => {
 
   return (
     <>
-      <p className="text-white/40 lowercase font-bold text-sm -mb-20 pt-8 px-10 absolute">
-        Statistics:
-      </p>
-      <div style={{ width: "100%", height: 300 }}>
-        <ResponsiveContainer>
-          <RadarChart outerRadius={88} data={data}>
+      <div style={{ width: "100%", height: 300, position: "relative" }}>
+        <div className="text-white/40 lowercase font-bold text-sm -mb-14 pt-8 px-10">
+          Statistics:
+        </div>
+        <ResponsiveContainer width="100%" height={300}>
+          <RadarChart outerRadius={90} data={data}>
             <PolarGrid />
             <PolarAngleAxis
               dataKey="subject"

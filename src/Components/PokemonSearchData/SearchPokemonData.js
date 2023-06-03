@@ -1,6 +1,7 @@
 import React from "react";
 import RadarChart from "../PokemonData/Data-UI/Chart";
 import PokemonType from "../PokemonData/Data-UI/PokemonType";
+import PokemonBodyMassIndex from "../PokemonData/Data-UI/PokemonBodyMassIndex";
 import "./Content/SearchPokemon.css";
 
 const SearchPokemonData = (props) => {
@@ -49,6 +50,7 @@ const SearchPokemonData = (props) => {
                   <div className="md:rounded-lg mt-5 -mx-5 lg:mx-0 duration-300 relative">
                     <RadarChart pokeData={props.poke} />
                   </div>
+                  <PokemonBodyMassIndex pokemon={props.poke} />
                 </div>
               </div>
 
@@ -63,10 +65,11 @@ const SearchPokemonData = (props) => {
                     alt="Pokemon_image"
                   />
                 </div>
-                <div className="block lg:hidden">
-                  <div className="bg-gray-900 md:rounded-lg mb-8 mt-6 -mx-5 lg:mx-0 duration-300 relative">
+                <div className="block lg:hidden bg-gray-900 -mx-5">
+                  <div className="md:rounded-lg mb-8 mt-6 lg:mx-0 duration-300 relative">
                     <RadarChart pokeData={props.poke} />
                   </div>
+                  <PokemonBodyMassIndex pokemon={props.poke} />
                 </div>
               </div>
             </div>

@@ -49,6 +49,7 @@ const SearchHomePage = () => {
         }
       }, 2000);
     }
+    // console.log(pokemon);
   };
   return (
     <>
