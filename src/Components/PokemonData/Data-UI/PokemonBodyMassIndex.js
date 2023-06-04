@@ -1,6 +1,12 @@
 import React from "react";
 
 const PokemonBodyMassIndex = (props) => {
+  const wholeNumberHeight = props.pokemon.height;
+  const PokemonHeight = wholeNumberHeight / 10;
+
+  const poundsWeight = props.pokemon.weight;
+  const PokemonWeight = poundsWeight / 10;
+
   return (
     <>
       {props.pokemon.is_legendary === true ? (
@@ -11,7 +17,7 @@ const PokemonBodyMassIndex = (props) => {
           <div className="lg:pr-1.5">
             Height
             <p className="mt-0.5 md:mt-1 text-sm md:text-base text-white font-normal">
-              {props.pokemon.height}
+              {PokemonHeight} m
             </p>
           </div>
           <div className="border-x border-white/60 md:col-span-2">
@@ -22,7 +28,7 @@ const PokemonBodyMassIndex = (props) => {
           <div className="lg:pl-1.5">
             Weight
             <p className="mt-0.5 md:mt-1 text-sm md:text-base text-white font-normal">
-              {props.pokemon.weight}
+              {PokemonWeight} <span className="text-xs"> kg</span>
             </p>
           </div>
         </div>
@@ -31,13 +37,13 @@ const PokemonBodyMassIndex = (props) => {
           <div>
             Height
             <p className="mt-0.5 md:mt-1 text-sm md:text-base text-white font-normal">
-              {props.pokemon.height}
+              {PokemonHeight} m
             </p>
           </div>
           <div className="border-l border-white/60">
             Weight
             <p className="mt-0.5 md:mt-1 text-sm md:text-base text-white font-normal">
-              {props.pokemon.weight}
+              {PokemonWeight} <span className="text-xs"> kg</span>
             </p>
           </div>
         </div>
