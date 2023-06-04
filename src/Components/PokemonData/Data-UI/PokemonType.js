@@ -2,7 +2,7 @@ import React from "react";
 
 const PokemonType = (props) => {
   return (
-    <>
+    <React.Fragment key={props.data.id}>
       {props.data.types.length === 2 ? (
         <div className="grid grid-cols-6 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pb-5 md:pt-1 text-sm pointer-events-none">
           {props.data.types.map((pokemon) => {
@@ -30,7 +30,7 @@ const PokemonType = (props) => {
           })}
         </div>
       )}
-    </>
+    </React.Fragment>
   );
 };
 

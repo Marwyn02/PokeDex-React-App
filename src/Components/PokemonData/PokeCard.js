@@ -31,12 +31,12 @@ const PokeCard = (props) => {
           </h1>
           <div className="grid grid-cols-3 gap-x-1 lg:gap-x-2.5 xl:gap-1 text-white pt-4 pb-1 text-sm pointer-events-none">
             <p>Type</p>
-            {props.data.types.map((poke) => {
+            {props.data.types.map((pokemon) => {
               return (
                 <p
-                  className={`${poke.type.name} rounded-md text-center text-xs py-0.5`}
+                  className={`${pokemon.type.name} rounded-md text-center text-xs py-0.5`}
                 >
-                  {poke.type.name}
+                  {pokemon.type.name}
                 </p>
               );
             })}

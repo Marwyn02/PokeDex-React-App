@@ -74,7 +74,7 @@ const ModalTab = (props) => {
               </>
             )}
             <hr className="border-white/20 mb-2 mt-1 mx-8 sm:mb-4" />
-            <h5 className="-mb-1.5 py-1 pl-4 text-sm font-medium text-gray-100/80 capitalize">
+            <h5 className="-mb-1.5 py-2 pl-4 text-xs font-medium text-gray-100/80 lowercase">
               Abilities
             </h5>
             <div className="grid grid-cols-2 gap-1.5 md:gap-2 px-10 py-2">

@@ -122,7 +122,7 @@ const PokeModal = (props) => {
                         <Dialog.Panel
                           className={`${props.info.types[0].type.name}-bg relative transform overflow-hidden rounded-lg text-left shadow-xl transition-all sm:m-8 w-full max-w-lg flex-auto`}
                         >
-                          <div className="px-5 pt-1 sm:px-5 sm:pt-5 md:pt-6 md:px-8 md:pb-2">
+                          <div className="px-5 pt-2 sm:px-5 sm:pt-5 md:pt-6 md:px-8 md:pb-2">
                             <div className="mt-3 text-center sm:mt-0 sm:text-left">
                               <Dialog.Title
                                 as="div"
@@ -171,7 +171,7 @@ const PokeModal = (props) => {
 
                           <PokemonType data={props.info} />
 
-                          <div className="relative flex-auto overflow-hidden px-4 pb-2 sm:px-6 sm:pb-4 sm:pt-1 md:px-5 md:pb-5 md:pt-1.5">
+                          <div className="relative flex-auto overflow-hidden px-4 pb-4 sm:px-6 sm:pb-4 sm:pt-1 md:px-5 md:pb-5 md:pt-1.5">
                             <div className="md:pb-2 px-5 md:px-8 flex justify-center items-center">
                               {/* POKEMON IMAGE */}
                               <img
