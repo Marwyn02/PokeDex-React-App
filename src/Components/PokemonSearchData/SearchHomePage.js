@@ -67,7 +67,7 @@ const SearchHomePage = () => {
         />
       )}
       {!error && !noInput && !pokemon && !loading ? (
-        <div className="h-screen w-full bg-gradient-to-b from-white/50 to-gray-300"></div>
+        <div className="h-screen w-full"></div>
       ) : null}
       {loading && <LoadingSpinner />}
       {!loading && pokemon ? <SearchPokemonData poke={pokemon} /> : null}

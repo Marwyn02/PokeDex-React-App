@@ -5,7 +5,7 @@ import PokePageButton from "./Components/PokemonNavigation/PokePageButton";
 import SearchHomePage from "./Components/PokemonSearchData/SearchHomePage";
 import MapHomePage from "./Components/PokemonMapSearch/MapHomePage";
 import Navbar from "./Components/Nav/Navbar";
-import LandingPage from "./Components/LandingPage/LandingPage";
+// import LandingPage from "./Components/LandingPage/LandingPage";
 import Footer from "./Components/Footer/Footer";
 import LoadingSpinner from "./Components/UI/LoadingSpinner";
 import axios from "axios";
@@ -25,7 +25,7 @@ const App = () => {
   const [mapSearch, setMapSearch] = useState(false);
   const [error, setError] = useState(false);
   const [onModal, setOnModal] = useState(false);
-  const [countingLoading, setCountingLoading] = useState(false); // <-- this must be false
+  const [countingLoading, setCountingLoading] = useState(true); // <-- this must be false
 
   useEffect(() => {
     const pokemonFun = async () => {
@@ -112,10 +112,10 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <LandingPage
+      {/* <LandingPage
         countingLoad={countingLoadingHandler}
         percLoading={isLoading}
-      />
+      /> */}
       {/* Comment this when developing ^^ */}
       {countingLoading && (
         <>
@@ -128,7 +128,7 @@ const App = () => {
           {mapSearch && <MapHomePage />}
           {searchPanel && <SearchHomePage />}
           {!searchPanel && !mapSearch && (
-            <div className="mx-3 md:mx-20 lg:mx-32 xl:mx-40 2xl:mx-96 2xl:px-20 md:my-16">
+            <div className="mx-3 md:mx-20 md:my-16 lg:mx-32 xl:mx-40 2xl:mx-48 2xl:px-20">
               {
                 <div>
                   <PokePageButton
